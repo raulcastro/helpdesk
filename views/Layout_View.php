@@ -441,14 +441,14 @@ class Layout_View
 	        </div>
 	        <!-- /.login-logo -->
 	        <div class="login-box-body">
-	            <p class="login-box-msg">Sign in to start your session</p>
+	            <p class="login-box-msg"><?php echo _("Sign in to start your session"); ?></p>
 	            <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" id="logInForm">
 	                <div class="form-group has-feedback">
-	                    <input type="email" class="form-control" placeholder="Email" name='loginUser'>
+	                    <input type="email" class="form-control" placeholder="<?php echo gettext("E-mail"); ?>" name='loginUser'>
 	                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 	                </div>
 	                <div class="form-group has-feedback">
-	                    <input type="password" class="form-control" placeholder="Password" name='loginPassword'>
+	                    <input type="password" class="form-control" placeholder="<?php echo gettext("Password"); ?>" name='loginPassword'>
 	                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 	                </div>
 	                <div class="row">
@@ -463,7 +463,7 @@ class Layout_View
 	                    <!-- /.col -->
 	                    <div class="col-xs-4">
 	                    	<input type="hidden" name="submitButton" value="1">
-	                        <button type="submit" class="btn btn-primary btn-block btn-flat" id="logins">Log In</button>
+	                        <button type="submit" class="btn btn-primary btn-block btn-flat" id="logins"><?php echo gettext("Log In"); ?></button>
 	                    </div>
 	                    <!-- /.col -->
 	                </div>

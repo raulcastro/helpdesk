@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-12-18 00:38-0500\n"
+"PO-Revision-Date: 2016-12-18 00:39-0500\n"
+"Last-Translator: Raul Castro <raul@whertogo.com.mx>\n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../../views\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: Layout_View.php\n"
+
+#: Layout_View.php:444
+msgid "Sign in to start your session"
+msgstr "Iniciar sesi&oacute;n"
+
+#: Layout_View.php:447
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: Layout_View.php:451
+msgid "Password"
+msgstr "Contrase&ntilde;a"
+
+#: Layout_View.php:466
+msgid "Log In"
+msgstr "Entrar"
