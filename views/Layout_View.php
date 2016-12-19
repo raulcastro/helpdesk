@@ -660,8 +660,8 @@ class Layout_View
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/add-owner/"><i class="fa fa-circle-o"></i> <?php echo _("Add client"); ?></a></li>
-                            <li><a href="/owners/"><i class="fa fa-circle-o"></i> <?php echo _("Client list"); ?></a></li>
+                            <li><a href="/add-client/"><i class="fa fa-circle-o"></i> <?php echo _("Add client"); ?></a></li>
+                            <li><a href="/clients/"><i class="fa fa-circle-o"></i> <?php echo _("Client list"); ?></a></li>
                         </ul>
                     </li>
                     <li><a href="/rooms/"><i class="fa fa-home"></i> <span><?php echo _("Calendar"); ?></span></a></li>
@@ -760,20 +760,6 @@ class Layout_View
 							<th><?php echo _("Name"); ?></th>
 							<th><?php echo _("Phone"); ?></th>
 							<th><?php echo _("E-Mail"); ?></th>
-							<?php 
-							if ($_SESSION['loginType'] == 1)
-							{
-							?>
-								<th><?php echo _("Added by"); ?></th>
-							<?php 
-							} 
-							else 
-							{
-							?>
-								<th><?php echo _("Address"); ?></th>
-							<?php 
-							}
-							?>
 							<th><?php echo _("Date"); ?></th>
 	                    </tr>
 	                    <?php 
@@ -783,31 +769,17 @@ class Layout_View
 							?>
 						<tr>
 							<td>
-								<a href="/owner/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/">
+								<a href="/client/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/">
 									<?php echo $member['member_id']; ?>
 								</a>
 							</td>
 							<td>
-								<a href="/owner/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/" class="member-link">
+								<a href="/client/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/" class="member-link">
 									<?php echo $member['name'].' '.$member['last_name']; ?>
 								</a>
 							</td>
 							<td><?php echo $member['phone_one']; ?></td>
 							<td><?php echo $member['email_one']; ?></td>
-							<?php 
-							if ($_SESSION['loginType'] == 1)
-							{
-								?>
-								<td><?php echo $member['user_name']; ?></td>
-								<?php 
-							} 
-							else 
-							{
-								?>
-								<td><?php echo $member['address']; ?></td>
-								<?php 
-							}
-							?>
 							<td><?php echo Tools::formatMYSQLToFront($member['date']); ?></td>
 						</tr>
 							<?php
@@ -1567,22 +1539,22 @@ class Layout_View
 			<div class="col-md-6">
 				<div class="box box-info">
 					<div class="box-header">
-						<h3 class="box-title">Owner info</h3>
+						<h3 class="box-title"><?php echo _("Client info"); ?></h3>
 					</div>
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">First name</label>
-							<input type="text" class="form-control" id="memberFirst" placeholder="First Name">
+							<label for="exampleInputEmail1"><?php echo _("First name"); ?></label>
+							<input type="text" class="form-control" id="memberFirst" placeholder="<?php echo _("First name"); ?> ...">
 						</div>
 						
 						<div class="form-group">
-							<label for="exampleInputEmail1">Last name</label>
-							<input type="text" class="form-control" id="memberLast" placeholder="Last Name">
+							<label for="exampleInputEmail1"><?php echo _("Last name"); ?></label>
+							<input type="text" class="form-control" id="memberLast" placeholder="<?php echo _("Last name"); ?> ...">
 						</div>
                         
                         <!-- phone mask -->
 						<div class="form-group">
-							<label>Phone one:</label>
+							<label><?php echo _("Phone one"); ?></label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-phone"></i>
@@ -1595,7 +1567,7 @@ class Layout_View
 						
 						<!-- phone mask -->
 						<div class="form-group">
-							<label>Phone two:</label>
+							<label><?php echo _("Phone two"); ?></label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-phone"></i>
@@ -1608,7 +1580,7 @@ class Layout_View
 						
 						<!-- email mask -->
 						<div class="form-group">
-							<label>Email one:</label>
+							<label><?php echo _("E-Mail one"); ?></label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-envelope"></i>
@@ -1621,7 +1593,7 @@ class Layout_View
 						
 						<!-- email mask -->
 						<div class="form-group">
-							<label>Email two:</label>
+							<label><?php echo _("E-Mail two"); ?></label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-envelope"></i>
@@ -1639,18 +1611,13 @@ class Layout_View
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Individual percentage </label>
-							<input type="text" class="form-control" id="memberCondo" placeholder="Percentage ...">
-						</div>
-					 
-						<div class="form-group">
-							<label for="exampleInputEmail1">Address</label>
-							<textarea class="form-control" id="memberAddress" rows="3" placeholder="Address ..."></textarea>
+							<label for="exampleInputEmail1"><?php echo _("Address"); ?></label>
+							<textarea class="form-control" id="memberAddress" rows="3" placeholder="<?php echo _("Address"); ?> ..."></textarea>
 						</div>
 						
 						<div class="form-group">
-							<label for="exampleInputEmail1">Notes</label>
-							<textarea class="form-control" id="notes" rows="5" placeholder="Notes ..."></textarea>
+							<label for="exampleInputEmail1"><?php echo _("Notes"); ?></label>
+							<textarea class="form-control" id="notes" rows="5" placeholder="<?php echo _("Notes"); ?> ..."></textarea>
 						</div>
 					</div>
 					
@@ -1660,8 +1627,8 @@ class Layout_View
 	                      		<span class="sr-only">20% Complete</span>
 	                    	</div>
 	                  	</div>
-	                    <button type="submit" class="btn btn-info pull-right" id="memberSave">Add Owner</button>
-	                    <a href="" class="btn btn-success pull-right" id="memberComplete">Complete Owner</a>
+	                    <button type="submit" class="btn btn-info pull-right" id="memberSave"><?php echo _("Add client"); ?></button>
+	                    <a href="" class="btn btn-success pull-right" id="memberComplete"><?php echo _("Complete client profile"); ?></a>
                   	</div>
 				</div>
 			</div>

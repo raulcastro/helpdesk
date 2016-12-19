@@ -150,7 +150,7 @@ function saveMember()
 	        	{
 	        		$('#progressSaveMember').hide();
 	        		$('#memberSave').hide();
-	        		$('#memberComplete').attr('href', '/owner/'+info+'/new-member/')
+	        		$('#memberComplete').attr('href', '/client/'+info+'/new-client/')
 	        		$('#memberComplete').show();
 	        	}
 	        	else

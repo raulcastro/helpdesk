@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-12-18 20:46-0500\n"
-"PO-Revision-Date: 2016-12-18 20:47-0500\n"
+"POT-Creation-Date: 2016-12-18 21:22-0500\n"
+"PO-Revision-Date: 2016-12-18 21:23-0500\n"
 "Last-Translator: Raul Castro <raul@whertogo.com.mx>\n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -98,13 +98,13 @@ msgstr "Tareas"
 msgid "Clients"
 msgstr "Clientes"
 
-#: Layout_View.php:663
+#: Layout_View.php:663 Layout_View.php:1635
 msgid "Add client"
-msgstr "Añadir cliente"
+msgstr "A&ntilde;adir cliente"
 
 #: Layout_View.php:664
 msgid "Client list"
-msgstr "Lista de Clientes"
+msgstr "Lista de clientes"
 
 #: Layout_View.php:667
 msgid "Calendar"
@@ -113,6 +113,10 @@ msgstr "Calendario"
 #: Layout_View.php:668
 msgid "Newsletter"
 msgstr ""
+
+#: Layout_View.php:706
+msgid "pending"
+msgstr "pendiente"
 
 #: Layout_View.php:725
 msgid "Payments"
@@ -134,21 +138,56 @@ msgstr "Nombre"
 msgid "Phone"
 msgstr "Tel&eacute;fono"
 
-#: Layout_View.php:767
-msgid "Added by"
-msgstr "A&ntilde;adido por"
-
-#: Layout_View.php:773
-msgid "Address"
-msgstr "Direeci&oacute;n"
-
-#: Layout_View.php:777
+#: Layout_View.php:763
 msgid "Date"
 msgstr "Fecha"
 
-#: Layout_View.php:3005
+#: Layout_View.php:1542
+msgid "Client info"
+msgstr "Informaci&oacute;n del cliente"
+
+#: Layout_View.php:1546 Layout_View.php:1547
+msgid "First name"
+msgstr "Nombre(s)"
+
+#: Layout_View.php:1551 Layout_View.php:1552
+msgid "Last name"
+msgstr "Apellido(s)"
+
+#: Layout_View.php:1557
+msgid "Phone one"
+msgstr "Tel&eacute;fono (1)"
+
+#: Layout_View.php:1570
+msgid "Phone two"
+msgstr "Tel&eacute;fono (2)"
+
+#: Layout_View.php:1583
+msgid "E-Mail one"
+msgstr "E-Mail (1)"
+
+#: Layout_View.php:1596
+msgid "E-Mail two"
+msgstr "E-Mail (2)"
+
+#: Layout_View.php:1619 Layout_View.php:1620
+msgid "Address"
+msgstr "Direeci&oacute;n"
+
+#: Layout_View.php:1624 Layout_View.php:1625
+msgid "Notes"
+msgstr "Notas"
+
+#: Layout_View.php:1636
+msgid "Complete client profile"
+msgstr "Completar perfil del cliente"
+
+#: Layout_View.php:2977
 msgid "All rights reserved"
 msgstr "Todos los derechos reservados"
+
+#~ msgid "Added by"
+#~ msgstr "A&ntilde;adido por"
 
 #~ msgid "E-mail"
 #~ msgstr "E-Mail"
