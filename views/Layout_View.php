@@ -2,8 +2,8 @@
 /**
  * This file has the main view of the project
  *
- * @package    Reservation System
- * @subpackage Tropical Casa Blanca Hotel
+ * @package    Helpdesk System
+ * @subpackage BCM Telematics
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Raul Castro <rd.castro.silva@gmail.com>
  */
@@ -58,9 +58,9 @@ class Layout_View
 	<html class='no-js' lang='<?php echo $this->data['appInfo']['lang']; ?>'>
 		<head>
 			<!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <![endif]-->
-			<meta charset="utf-8" />
+			<meta charset="utf-8" >
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    		<meta name="viewport" content="width=device-width, initial-scale=1">
+    		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 			<link rel="shortcut icon" href="favicon.ico" />
 			<link rel="icon" type="image/gif" href="favicon.ico" />
 			<title><?php echo $this->data['title']; ?> - <?php echo $this->data['appInfo']['title']; ?></title>
@@ -112,7 +112,7 @@ class Layout_View
 			}
 			?>
 		</head>
-		<body id="<?php echo $this->data['section']; ?>" class="hold-transition <?php echo $this->data['template-class']; ?> fixed  skin-black sidebar-mini">
+		<body id="<?php echo $this->data['section']; ?>" class="hold-transition <?php echo $this->data['template-class']; ?> skin-black-light sidebar-mini ">
 			<?php 
 			if ($this->data['section'] != 'log-in' && $this->data['section'] != 'log-out')
 			{
@@ -120,6 +120,9 @@ class Layout_View
 			<div class="wrapper">
 				<?php echo self :: getHeader(); ?>
 				<?php echo self :: getSidebar(); ?>
+				
+				<!-- =============================================== -->
+				
 				<!-- Content Wrapper. Contains page content -->
 		        <div class="content-wrapper">
 		            <!-- Content Header (Page header) -->
@@ -277,7 +280,7 @@ class Layout_View
 	        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	    <![endif]-->
-	    <link rel="stylesheet" href="/dist/css/skins/skin-black.min.css">
+	    <link rel="stylesheet" href="/dist/css/skins/skin-black-light.min.css">
        	<link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" />
     	
        	<?php 
@@ -296,7 +299,7 @@ class Layout_View
     	ob_start();
     	?>
     	<!-- jQuery 2.1.4 -->
-    	<script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    	<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
     	<!-- Bootstrap 3.3.5 -->
     	<script src="/bootstrap/js/bootstrap.min.js"></script>
     	<!-- AdminLTE App -->
@@ -326,7 +329,6 @@ class Layout_View
     	?>  		
 		<!-- Main Header -->
         <header class="main-header">
-
             <!-- Logo -->
             <a href="/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -336,14 +338,100 @@ class Layout_View
             </a>
 
             <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top" role="navigation">
+            <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
+						<!-- Messages: style can be found in dropdown.less-->
+						<li class="dropdown messages-menu">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-envelope-o"></i>
+								<span class="label label-success">4</span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="header"><?php echo _("You have"); ?> 4 <?php echo _("messages"); ?></li>
+								<li>
+									<!-- inner menu: contains the actual data -->
+									<ul class="menu">
+										<li><!-- start message -->
+											<a href="#">
+												<div class="pull-left">
+													<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+												</div>
+												<h4>
+													Support Team
+													<small><i class="fa fa-clock-o"></i> 5 mins</small>
+												</h4>
+												<p>mensaje de ejemplo ...</p>
+											</a>
+										</li>
+										<!-- end message -->
+									</ul>
+								</li>
+								<li class="footer"><a href="#"><?php echo _("See All Messages"); ?></a></li>
+							</ul>
+						</li>
+						<!-- Notifications: style can be found in dropdown.less -->
+						<li class="dropdown notifications-menu">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-bell-o"></i>
+								<span class="label label-warning">10</span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="header"><?php echo _("You have"); ?> 10 <?php echo _("notifications"); ?></li>
+								<li>
+									<!-- inner menu: contains the actual data -->
+									<ul class="menu">
+										<li>
+											<a href="#">
+												<i class="fa fa-users text-aqua"></i> 5 new members joined today
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="footer"><a href="#"><?php echo _("View all"); ?></a></li>
+							</ul>
+						</li>
+						<!-- Tasks: style can be found in dropdown.less -->
+						<li class="dropdown tasks-menu">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-flag-o"></i>
+								<span class="label label-danger">9</span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="header"><?php echo _("You have"); ?> 9 <?php echo _("tasks"); ?></li>
+								<li>
+									<!-- inner menu: contains the actual data -->
+									<ul class="menu">
+										<li><!-- Task item -->
+											<a href="#">
+												<h3>
+													Design some buttons
+													<small class="pull-right">20%</small>
+												</h3>
+												<div class="progress xs">
+													<div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+														<span class="sr-only">20% Complete</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<!-- end task item -->
+									</ul>
+								</li>
+								<li class="footer">
+								<a href="#"><?php echo _("View all tasks"); ?></a>
+								</li>
+							</ul>
+						</li>                    
+                    
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
@@ -365,10 +453,10 @@ class Layout_View
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                 	<div class="pull-left">
-                  						<a href="#" class="btn btn-default btn-flat">Profile</a>
+                  						<a href="#" class="btn btn-default btn-flat"><?php echo _("Profile"); ?></a>
                 					</div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/sign-out/" class="btn btn-default btn-flat"><?php echo _("Sign Out"); ?></a>
                                     </div>
                                 </li>
                             </ul>
@@ -444,7 +532,7 @@ class Layout_View
 	            <p class="login-box-msg"><?php echo _("Sign in to start your session"); ?></p>
 	            <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" id="logInForm">
 	                <div class="form-group has-feedback">
-	                    <input type="email" class="form-control" placeholder="<?php echo gettext("E-mail"); ?>" name='loginUser'>
+	                    <input type="email" class="form-control" placeholder="<?php echo gettext("E-Mail"); ?>" name='loginUser'>
 	                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 	                </div>
 	                <div class="form-group has-feedback">
@@ -493,12 +581,12 @@ class Layout_View
     	ob_start();
     	?>
        	<div class="row login-box" id="sign-in">
-    		<div class="col-md-4 col-md-offset-4">
-    			<h3 class="text-center">You've been logged out successfully</h3>
+    		<div class="col-md-12">
+    			<h3 class="text-center"><?php echo _("You've been logged out successfully"); ?></h3>
     			<br />
     	    	<div class="panel panel-default">
 					<div class="panel-body">
-						<a href="/" class="btn btn-lg btn-success btn-block">Login</a>
+						<a href="/" class="btn btn-lg btn-success btn-block"><?php echo _("Log In"); ?></a>
 					</div>
     			</div>
     		</div>
@@ -535,44 +623,49 @@ class Layout_View
                     <div class="pull-left info">
                         <p><?php echo $this->data['userInfo']['name']; ?></p>
                         <!-- Status -->
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        <a href="#"><i class="fa fa-circle text-success"></i> <?php echo _("Online"); ?></a>
                     </div>
                 </div>
-
+				<!-- search form -->
+				<form action="#" method="get" class="sidebar-form">
+					<div class="input-group">
+						<input type="text" name="q" class="form-control" placeholder="<?php echo _("Search"); ?> ...">
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+				</form>
+				<!-- /.search form -->
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li class="active"><a href="/dashboard/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li class="header"><?php echo _("MAIN NAVIGATION"); ?></li>
+                    <li class="active"><a href="/dashboard/"><i class="fa fa-dashboard"></i> <span><?php echo _("Dashboard"); ?></span></a></li>
                     <li>
 						<a href="">
-							<i class="fa fa-envelope"></i> <span>Messages</span>
+							<i class="fa fa-envelope"></i> <span><?php echo _("Messages"); ?></span>
 							<!-- <small class="label pull-right bg-yellow">12</small> -->
 						</a>
 					</li>
-                    <li><a href="/tasks/"><i class="fa fa-tasks"></i> <span>Tasks</span></a></li>
+					<li>
+						<a href="">
+							<i class="fa fa-envelope"></i> <span><?php echo _("E-Mail"); ?></span>
+							<!-- <small class="label pull-right bg-yellow">12</small> -->
+						</a>
+					</li>
+                    <li><a href="/tasks/"><i class="fa fa-tasks"></i> <span><?php echo _("Tasks"); ?></span></a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-users"></i>
-                            <span>Owners</span>
+                            <span><?php echo _("Clients"); ?></span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/add-owner/"><i class="fa fa-circle-o"></i> Add owner</a></li>
-                            <li><a href="/owners/"><i class="fa fa-circle-o"></i> Owners list</a></li>
-                            <?php 
-							if ($this->data['condos'])
-							{
-								foreach ($this->data['condos'] as $condo)
-								{
-									?>
-							<li><a href="/condo/<?php echo $condo['condo_id'].'/'.Tools::slugify($condo['condo']).'/'; ?>"><i class="fa fa-institution"></i> <span><?php echo $condo['condo']; ?></span></a></li>		
-									<?php
-								}
-							}
-							?>
+                            <li><a href="/add-owner/"><i class="fa fa-circle-o"></i> <?php echo _("Add client"); ?></a></li>
+                            <li><a href="/owners/"><i class="fa fa-circle-o"></i> <?php echo _("Client list"); ?></a></li>
                         </ul>
                     </li>
-                    <li><a href="/rooms/"><i class="fa fa-home"></i> <span>Rooms</span></a></li>
+                    <li><a href="/rooms/"><i class="fa fa-home"></i> <span><?php echo _("Calendar"); ?></span></a></li>
+                    <li><a href="/rooms/"><i class="fa fa-home"></i> <span><?php echo _("Newsletter"); ?></span></a></li>
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
@@ -598,7 +691,7 @@ class Layout_View
 				<div class="info-box">
                 	<span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
                 	<div class="info-box-content">
-						<span class="info-box-text">Owners</span>
+						<span class="info-box-text"><?php echo _("Clients"); ?></span>
 						<span class="info-box-number"><?php echo $this->data['totalMembers']; ?></span>
 					</div><!-- /.info-box-content -->
 				</div><!-- /.info-box -->
@@ -608,9 +701,9 @@ class Layout_View
 				<div class="info-box">
                 	<span class="info-box-icon bg-green"><i class="fa fa-tasks"></i></span>
                 	<div class="info-box-content">
-						<span class="info-box-text">Tasks</span>
+						<span class="info-box-text"><?php echo _("Tasks"); ?></span>
 						<span class="info-box-number"><?php echo $this->data['taskInfo']['today']; ?></span>
-						<span class="progress-description"><?php echo $this->data['taskInfo']['pending']; ?> pending</span>
+						<span class="progress-description"><?php echo $this->data['taskInfo']['pending']; ?> <?php echo _("pending"); ?></span>
 					</div><!-- /.info-box-content -->
 				</div><!-- /.info-box -->
 			</div><!-- /.col -->
@@ -619,7 +712,7 @@ class Layout_View
 				<div class="info-box">
                 	<span class="info-box-icon bg-yellow"><i class="fa fa-envelope-o"></i></span>
                 	<div class="info-box-content">
-						<span class="info-box-text">Messages</span>
+						<span class="info-box-text"><?php echo _("Messages");?></span>
 						<span class="info-box-number">4</span>
 					</div><!-- /.info-box-content -->
 				</div><!-- /.info-box -->
@@ -629,7 +722,7 @@ class Layout_View
 				<div class="info-box">
                 	<span class="info-box-icon bg-red"><i class="fa fa-money"></i></span>
                 	<div class="info-box-content">
-						<span class="info-box-text">Payments</span>
+						<span class="info-box-text"><?php echo _("Payments"); ?></span>
 						<span class="info-box-number">2</span>
 					</div><!-- /.info-box-content -->
 				</div><!-- /.info-box -->
@@ -658,32 +751,33 @@ class Layout_View
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">Recent Owners</h3>
+						<h3 class="box-title"><?php echo _("Recent Clients"); ?></h3>
 					</div><!-- /.box-header -->
 					<div class="box-body table-responsive no-padding">
 	                  <table class="table table-hover">
 	                    <tr>
-	                      <th>Member ID</th>
-							<th>Name</th>
-							<th>Phone</th>
-							<th>Email</th>
+	                      <th><?php echo _("Client ID"); ?></th>
+							<th><?php echo _("Name"); ?></th>
+							<th><?php echo _("Phone"); ?></th>
+							<th><?php echo _("E-Mail"); ?></th>
 							<?php 
 							if ($_SESSION['loginType'] == 1)
 							{
 							?>
-								<th>Added by</th>
+								<th><?php echo _("Added by"); ?></th>
 							<?php 
 							} 
 							else 
 							{
 							?>
-								<th>Address</th>
+								<th><?php echo _("Address"); ?></th>
 							<?php 
 							}
 							?>
-							<th>Date</th>
+							<th><?php echo _("Date"); ?></th>
 	                    </tr>
 	                    <?php 
+	                    if ($this->data['lastMembers'])
 						foreach ($this->data['lastMembers'] as $member)
 						{
 							?>
@@ -2905,10 +2999,10 @@ class Layout_View
         <footer class="main-footer">
             <!-- To the right -->
             <div class="pull-right hidden-xs">
-                Property Managements
+                Smart Help Desk
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2016 <a href="#"><?php echo $this->data['appInfo']['siteName']; ?></a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2016 <a href="#"><?php echo $this->data['appInfo']['siteName']; ?></a>.</strong> <?php echo _("All rights reserved"); ?>
         </footer>
     	<?php
     	$footer = ob_get_contents();

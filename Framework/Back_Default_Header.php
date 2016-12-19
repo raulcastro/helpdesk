@@ -10,6 +10,8 @@
 
 date_default_timezone_set('America/Bogota');
 
+global $db;
+
 $root = $_SERVER['DOCUMENT_ROOT'];
 require_once ($root . '/Framework/sessionControl.php');
 require_once ($root . '/Framework/Connection_Data.php');

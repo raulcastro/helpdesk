@@ -32,10 +32,12 @@
 	require_once $root.'/'.'views/Layout_View.php';
 	
 	$data 					= $backend->loadBackend('mainSection');
-	$data['title'] 			= 'Log In';
-	$data['section'] 		= 'log-in';
+	$data['title'] 			= _('Log Out');
+	$data['section'] 		= 'log-out';
 	$data['template-class'] = 'login-page';
 	
 	$view 		= new Layout_View($data);
+	
+	$control->eraseSession();
 	
 	echo $view->printHTMLPage();
