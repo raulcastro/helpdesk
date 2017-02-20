@@ -20,9 +20,10 @@ RewriteRule ^sitemap.xml$ sitemap.xml
 RewriteRule ^dashboard/$ 					/dashboard.php?section=1
 RewriteRule ^sign-out/$ 					/sign-out.php
 
+RewriteRule ^clients/$ 	/all-clients.php?section=4
+RewriteRule ^last-members-added/$ 					/last-members-added.php?section=1
 RewriteRule ^add-client/$ 						/add-client.php?section=2
 RewriteRule ^client/([0-9]+)/([A-Za-z0-9-]+)/$ 	/client.php?memberId=$1&section=3
-
 
 
 

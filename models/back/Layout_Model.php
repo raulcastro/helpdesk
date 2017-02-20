@@ -207,7 +207,7 @@ class Layout_Model
 	 * 
 	 * @return mixed|bool An array of info or false
 	 */
-	public function getLastMembers()
+	public function getLastMembersActivity()
 	{
 		try {
 			$filter = '';
@@ -226,12 +226,13 @@ class Layout_Model
 					m.phone_one,
 					m.email_one,
 					m.date,
+					DATE_FORMAT(m.last_activity, "%d %b, %h:%i %p") as last_activity,
 					d.name AS user_name
 					FROM members m
 					LEFT JOIN user_detail d ON m.user_id = d.user_id
 					'.$filter.'
-					 ORDER BY m.member_id DESC
-					LIMIT 0, 20
+					ORDER BY m.last_activity DESC
+					LIMIT 0, 30
 					';
 
 			return $this->db->getArray($query);
@@ -241,6 +242,41 @@ class Layout_Model
 		}
 	}
 
+	public function getLastMembersAdded()
+	{
+		try {
+			$filter = '';
+				
+			if ($_SESSION['loginType'] != 1)
+			{
+				$filter = 'WHERE m.user_id = '.$_SESSION['userId'];
+			}
+				
+			$query = 'SELECT
+					lpad(m.member_id, 4, 0) AS member_id,
+					m.user_id,
+					m.name,
+					m.last_name,
+					m.active,
+					m.phone_one,
+					m.email_one,
+					m.date,
+					DATE_FORMAT(m.last_activity, "%d %b, %h:%i %p") as last_activity,
+					d.name AS user_name
+					FROM members m
+					LEFT JOIN user_detail d ON m.user_id = d.user_id
+					'.$filter.'
+					ORDER BY m.date DESC
+					LIMIT 0, 30
+					';
+	
+			return $this->db->getArray($query);
+				
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+	
 	public function getTotalMembers()
 	{
 		try {
@@ -277,11 +313,12 @@ class Layout_Model
 					m.phone_one,
 					m.email_one,
 					m.date,
+					DATE_FORMAT(m.last_activity, "%d %b, %h:%i %p") as last_activity,
 					d.name AS user_name
 					FROM members m
 					LEFT JOIN user_detail d ON m.user_id = d.user_id
 					'.$filter.'
-					 ORDER BY m.member_id DESC
+					 ORDER BY m.member_id ASC
 					';
 			return $this->db->getArray($query);
 			
@@ -362,6 +399,16 @@ class Layout_Model
 			$prep = $this->db->prepare($query);
 			$prep->bind_param('si', $file, $memberId);
 			return $prep->execute();
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+	
+	public function updateMemberActivityByMemberId($memberId)
+	{
+		try {
+			$query = 'UPDATE members SET last_activity = CURRENT_TIMESTAMP WHERE member_id = '.$memberId;
+			return $this->db->run($query);
 		} catch (Exception $e) {
 			return false;
 		}

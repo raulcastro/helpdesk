@@ -98,6 +98,10 @@ class Layout_View
 					echo self::getMemberHead();
 				break;
 				
+				case 'all-clients':
+					echo self::getAllClientsHead();
+ 				break;
+				
 				case 'rooms':
 					echo self::getRoomsHead();
 				break;
@@ -143,8 +147,13 @@ class Layout_View
 								echo self::getRecentMembers();
 							break;
 							
-							case 'owners':
-								echo self::getRecentMembers();
+							case 'last-added':
+								echo self::getDashboardIcons();
+								echo self::getRecentAddedMembers();
+							break;
+							
+							case 'all-clients':
+								echo self::getAllClients();
  							break;
 							
 							case 'settings':
@@ -233,6 +242,10 @@ class Layout_View
 				
 				case 'member':
 					echo self::getMemberScripts();
+				break;
+				
+				case 'all-clients':
+					echo self::getAllClientsScripts();
 				break;
 				
 				case 'rooms':
@@ -751,12 +764,71 @@ class Layout_View
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title"><?php echo _("Recent Clients"); ?></h3>
+						<a href="/dashboard/" class="text-info"><?php echo _("Last activity"); ?></a> / <a href="/last-members-added/" class="text-gray"><?php echo _("Recently added"); ?></a> 
 					</div><!-- /.box-header -->
 					<div class="box-body table-responsive no-padding">
 	                  <table class="table table-hover">
 	                    <tr>
-	                      <th><?php echo _("Client ID"); ?></th>
+	                      	<th><?php echo _("Client ID"); ?></th>
+							<th><?php echo _("Name"); ?></th>
+							<th><?php echo _("Phone"); ?></th>
+							<th><?php echo _("E-Mail"); ?></th>
+							<th><?php echo _("Last Activity"); ?></th>
+	                    </tr>
+	                    <?php 
+	                    if ($this->data['lastMembers'])
+						foreach ($this->data['lastMembers'] as $member)
+						{
+							?>
+						<tr>
+							<td>
+								<a href="/client/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/">
+									<?php echo $member['member_id']; ?>
+								</a>
+							</td>
+							<td>
+								<a href="/client/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/" class="member-link">
+									<?php echo $member['name'].' '.$member['last_name']; ?>
+								</a>
+							</td>
+							<td><?php echo $member['phone_one']; ?></td>
+							<td><?php echo $member['email_one']; ?></td>
+							<td><?php echo $member['last_activity']; ?></td>
+						</tr>
+							<?php
+						}
+						?>
+	                  </table>
+	                 
+	                 
+	                	<div class="box-header">
+							<a href="/clients/" ><p class="text-cenetered text-info"><?php echo _("View all"); ?></p></a>
+						</div><!-- /.box-header --> 
+                	</div><!-- /.box-body -->
+				</div><!-- /.box -->
+			</div>
+		</div>
+   		<?php
+   		$membersRecent = ob_get_contents();
+   		ob_end_clean();
+   		return $membersRecent;
+   	}
+   	
+   	public function getRecentAddedMembers()
+   	{
+   		ob_start();
+   		?>
+   		<div class="row">
+			<div class="col-xs-12">
+				<div class="box">
+					<div class="box-header">
+						
+						<a href="/dashboard/" class="text-gray" ><?php echo _("Last activity"); ?></a> / <a href="/last-members-added/" class="text-info"><?php echo _("Recently added"); ?></a> 
+					</div><!-- /.box-header -->
+					<div class="box-body table-responsive no-padding">
+	                  <table class="table table-hover">
+	                    <tr>
+	                      	<th><?php echo _("Client ID"); ?></th>
 							<th><?php echo _("Name"); ?></th>
 							<th><?php echo _("Phone"); ?></th>
 							<th><?php echo _("E-Mail"); ?></th>
@@ -764,7 +836,7 @@ class Layout_View
 	                    </tr>
 	                    <?php 
 	                    if ($this->data['lastMembers'])
-						foreach ($this->data['lastMembers'] as $member)
+						foreach ($this->data['lastMembersAdded'] as $member)
 						{
 							?>
 						<tr>
@@ -786,6 +858,11 @@ class Layout_View
 						}
 						?>
 	                  </table>
+	                 
+	                 
+	                	<div class="box-header">
+							<a href="/clients/" ><p class="text-cenetered text-info"><?php echo _("View all"); ?></p></a>
+						</div><!-- /.box-header --> 
                 	</div><!-- /.box-body -->
 				</div><!-- /.box -->
 			</div>
@@ -795,87 +872,129 @@ class Layout_View
    		ob_end_clean();
    		return $membersRecent;
    	}
+   	
+   	public function getAllClientsHead()
+    {
+    	ob_start();
+    	?>
+    	
+    	<!-- DataTables -->
+  		<link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+    	<?php
+    	$head = ob_get_contents();
+    	ob_end_clean();
+    	return $head;
+    }
+    
+    public function getAllClientsScripts()
+    {
+    	ob_start();
+    	?>
+    	<!-- DataTables -->
+		<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<!-- SlimScroll -->
+		<script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+		<!-- FastClick -->
+		<script src="/plugins/fastclick/fastclick.js"></script>
+		<script>
+		  $(function () {
+		    
+		    $('#allClients').DataTable({
+			    language: {
+			    	"sProcessing":     "Procesando...",
+			        "sLengthMenu":     "Mostrar _MENU_  registros",
+			        "sZeroRecords":    "No se encontraron resultados",
+			        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+			        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+			        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			        "sInfoPostFix":    "",
+			        "sSearch":         "Buscar:",
+			        "sUrl":            "",
+			        "sInfoThousands":  ",",
+			        "sLoadingRecords": "Cargando...",
+			        "oPaginate": {
+			            "sFirst":    "Primero",
+			            "sLast":     "Último",
+			            "sNext":     "Siguiente",
+			            "sPrevious": "Anterior"
+			        },
+			        "oAria": {
+			            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+			            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			        }
+			    },
+			    
+		      "paging": true,
+		      "lengthChange": true,
+		      "searching": true,
+		      "ordering": true,
+		      "info": true,
+		      "autoWidth": false,
+		      "lengthMenu": [ 25, 50, 75, 100 ],
+		      "order": [[ 0, "desc" ]]
+		    });
+		  });
+		</script>
+    	<?php
+    	$scripts = ob_get_contents();
+    	ob_end_clean();
+    	return $scripts;
+    }
 	
    	/**
    	 * The whole list of members
    	 * 
    	 * @return string
    	 */
-   	public function getAllMembers()
+   	public function getAllClients()
    	{
    		ob_start();
    		?>
    		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
-					<div class="box-header">
-						<h3 class="box-title">Recent Owners</h3>
-					</div><!-- /.box-header -->
-					<div class="box-body table-responsive no-padding">
-	                  <table class="table table-hover">
-	                    <tr>
-	                      <th>Member ID</th>
-							<th>Name</th>
-							<th>Phone</th>
-							<th>Email</th>
-							<?php 
-							if ($_SESSION['loginType'] == 1)
-							{
-							?>
-								<th>Added by</th>
-							<?php 
-							} 
-							else 
-							{
-							?>
-								<th>Address</th>
-							<?php 
-							}
-							?>
-							<th>Date</th>
+					<div class="box-body">
+	                  <table class="table table-bordered table-striped" id="allClients" data-page-length='50'>
+	                  <thead>
+	                  	<tr>
+	                      	<th><?php echo _("Client ID"); ?></th>
+							<th><?php echo _("Name"); ?></th>
+							<th><?php echo _("Phone"); ?></th>
+							<th><?php echo _("E-Mail"); ?></th>
+							<th><?php echo _("Last Activity"); ?></th>
 	                    </tr>
+	                  </thead>
+	                    
 	                    <?php 
 						foreach ($this->data['members'] as $member)
 						{
 							?>
 						<tr>
 							<td>
-								<a href="/owner/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/">
+								<a href="/client/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/">
 									<?php echo $member['member_id']; ?>
 								</a>
 							</td>
 							<td>
-								<a href="/owner/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/" class="member-link">
+								<a href="/client/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/" class="member-link">
 									<?php echo $member['name'].' '.$member['last_name']; ?>
 								</a>
 							</td>
 							<td><?php echo $member['phone_one']; ?></td>
 							<td><?php echo $member['email_one']; ?></td>
-							<?php 
-							if ($_SESSION['loginType'] == 1)
-							{
-								?>
-								<td><?php echo $member['user_name']; ?></td>
-								<?php 
-							} 
-							else 
-							{
-								?>
-								<td><?php echo $member['address']; ?></td>
-								 <?php 
-							}
-							?>
-							<td><?php echo Tools::formatMYSQLToFront($member['date']); ?></td>
+							<td><?php echo $member['last_activity']; ?></td>
 						</tr>
 							<?php
 						}
 						?>
+						
 	                  </table>
                 	</div><!-- /.box-body -->
 				</div><!-- /.box -->
 			</div>
 		</div>
-   		
    	   	<?php
    	   	$membersRecent = ob_get_contents();
    	   	ob_end_clean();

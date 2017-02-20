@@ -75,8 +75,8 @@ class generalBackend
 		$data['userInfo'] 			= $userInfoRow;
 		
 		// Last 20 members
-		$lastMembersArray 			= $this->model->getLastMembers();
-		$data['lastMembers'] 		= $lastMembersArray;
+		$data['lastMembers'] 			= $this->model->getLastMembersActivity();
+		$data['lastMembersAdded'] 		= $this->model->getLastMembersAdded();
 		
 		// Task Info
 		$data['taskInfo']['today'] 		= $this->model->getTotalTodayTasksByMemberId();
@@ -110,10 +110,9 @@ class generalBackend
 				$data['inventoryArray'] = $inventoryArray;
 			break;
 			
-			case 'members':
+			case 'all-clients':
 				// 		get all members
-				$membersArray 		= $this->model->getAllMembers();
-				$data['members'] 	= $membersArray;
+				$data['members'] 		= $this->model->getAllMembers();
 			break;
 			
 			case 'condo':
@@ -154,6 +153,9 @@ class generalBackend
 			break;
 			
 			case 'member':
+// 				UPDATE LAST ACTIVITY 
+				$this->model->updateMemberActivityByMemberId($memberId);
+				
 				$memberInfoRow 			= $this->model->getMemberByMemberId($memberId);
 				$data['memberInfo'] 	= $memberInfoRow;
 				
