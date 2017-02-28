@@ -5,12 +5,13 @@
 
 	$root = $_SERVER['DOCUMENT_ROOT']."/";
 	
+	require_once($root.'/Framework/locale.php');
 	require_once $root.'backends/admin-backend.php';
-	require_once $root.'/'.'views/Layout_View.php';
+	require_once $root.'/views/Layout_View.php';
 	
 	$data 	= $backend->loadBackend('member', $_GET['memberId']);
 	
-	$data['title'] 			= 'Owner # '.str_pad($data['memberInfo']['member_id'], 4, 0, STR_PAD_LEFT);
+	$data['title'] 			= _("Client").' # '.str_pad($data['memberInfo']['member_id'], 4, 0, STR_PAD_LEFT);
 	$data['section'] 		= 'member';
 	$data['icon'] 			= 'fa-user';
 	$data['template-class'] = '';

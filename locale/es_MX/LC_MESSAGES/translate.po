@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-02-19 22:35-0500\n"
-"PO-Revision-Date: 2017-02-19 22:44-0500\n"
+"POT-Creation-Date: 2017-02-27 17:23-0500\n"
+"PO-Revision-Date: 2017-02-27 17:24-0500\n"
 "Last-Translator: Raul Castro <raul@whertogo.com.mx>\n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -14,184 +14,250 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: Layout_View.php\n"
 
-#: Layout_View.php:367 Layout_View.php:396 Layout_View.php:417
+#: Layout_View.php:372 Layout_View.php:401 Layout_View.php:422
 msgid "You have"
 msgstr "Tienes"
 
-#: Layout_View.php:367
+#: Layout_View.php:372
 msgid "messages"
 msgstr "mensajes"
 
-#: Layout_View.php:386
+#: Layout_View.php:391
 msgid "See All Messages"
 msgstr "Ver todos los mensajes"
 
-#: Layout_View.php:396
+#: Layout_View.php:401
 msgid "notifications"
 msgstr "notificaciones"
 
-#: Layout_View.php:407 Layout_View.php:801
+#: Layout_View.php:412 Layout_View.php:805 Layout_View.php:864
 msgid "View all"
 msgstr "Ver todos"
 
-#: Layout_View.php:417
+#: Layout_View.php:422
 msgid "tasks"
 msgstr "tareas"
 
-#: Layout_View.php:438
+#: Layout_View.php:443
 msgid "View all tasks"
 msgstr "Ver todas las tareas"
 
-#: Layout_View.php:464
+#: Layout_View.php:469
 msgid "Profile"
 msgstr "Perfil"
 
-#: Layout_View.php:467
+#: Layout_View.php:472
 msgid "Sign Out"
 msgstr "Salir"
 
-#: Layout_View.php:540
+#: Layout_View.php:545
 msgid "Sign in to start your session"
 msgstr "Iniciar sesi&oacute;n"
 
-#: Layout_View.php:543 Layout_View.php:659 Layout_View.php:771
-#: Layout_View.php:901
+#: Layout_View.php:548 Layout_View.php:664 Layout_View.php:775
+#: Layout_View.php:834 Layout_View.php:965 Layout_View.php:2628
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: Layout_View.php:547
+#: Layout_View.php:552
 msgid "Password"
 msgstr "Contrase&ntilde;a"
 
-#: Layout_View.php:562 Layout_View.php:597
+#: Layout_View.php:567 Layout_View.php:602
 msgid "Log In"
 msgstr "Entrar"
 
-#: Layout_View.php:593
+#: Layout_View.php:598
 msgid "You've been logged out successfully"
 msgstr "Tu sesi&oacute;n se ha cerrado correctamente"
 
-#: Layout_View.php:634
+#: Layout_View.php:639
 msgid "Online"
 msgstr "En linea"
 
-#: Layout_View.php:640
+#: Layout_View.php:645
 msgid "Search"
 msgstr "Buscar"
 
-#: Layout_View.php:649
+#: Layout_View.php:654
 msgid "MAIN NAVIGATION"
 msgstr "Men&uacute; Principal"
 
-#: Layout_View.php:650
+#: Layout_View.php:655
 msgid "Dashboard"
 msgstr "Panel de control"
 
-#: Layout_View.php:653 Layout_View.php:723
+#: Layout_View.php:658 Layout_View.php:728 Layout_View.php:2629
 msgid "Messages"
 msgstr "Mensajes"
 
-#: Layout_View.php:663 Layout_View.php:712
+#: Layout_View.php:668 Layout_View.php:717 Layout_View.php:2630
 msgid "Tasks"
 msgstr "Tareas"
 
-#: Layout_View.php:667 Layout_View.php:702
+#: Layout_View.php:672 Layout_View.php:707
 msgid "Clients"
 msgstr "Clientes"
 
-#: Layout_View.php:671 Layout_View.php:1685
+#: Layout_View.php:676 Layout_View.php:1749
 msgid "Add client"
 msgstr "A&ntilde;adir cliente"
 
-#: Layout_View.php:672
+#: Layout_View.php:677
 msgid "Client list"
 msgstr "Lista de clientes"
 
-#: Layout_View.php:675
+#: Layout_View.php:680
 msgid "Calendar"
 msgstr "Calendario"
 
-#: Layout_View.php:676
+#: Layout_View.php:681
 msgid "Newsletter"
 msgstr ""
 
-#: Layout_View.php:714
+#: Layout_View.php:719
 msgid "pending"
 msgstr "pendiente"
 
-#: Layout_View.php:733
+#: Layout_View.php:738
 msgid "Payments"
 msgstr "Pagos"
 
-#: Layout_View.php:763
+#: Layout_View.php:767 Layout_View.php:826
 msgid "Last activity"
 msgstr "&Uacute;ltimos activos"
 
-#: Layout_View.php:763
+#: Layout_View.php:767 Layout_View.php:826
 msgid "Recently added"
 msgstr "A&ntilde;adidos recientemente"
 
-#: Layout_View.php:768 Layout_View.php:898
+#: Layout_View.php:772 Layout_View.php:831 Layout_View.php:962
 msgid "Client ID"
 msgstr "Cliente ID"
 
-#: Layout_View.php:769 Layout_View.php:899
+#: Layout_View.php:773 Layout_View.php:832 Layout_View.php:963
 msgid "Name"
 msgstr "Nombre"
 
-#: Layout_View.php:770 Layout_View.php:900
+#: Layout_View.php:774 Layout_View.php:833 Layout_View.php:964
 msgid "Phone"
 msgstr "Tel&eacute;fono"
 
-#: Layout_View.php:772
-msgid "Date"
-msgstr "Fecha"
-
-#: Layout_View.php:902
+#: Layout_View.php:776 Layout_View.php:966
 msgid "Last Activity"
 msgstr "&Uacute;ltima actividad"
 
-#: Layout_View.php:1597
+#: Layout_View.php:835
+msgid "Date"
+msgstr "Fecha"
+
+#: Layout_View.php:1014
+msgid "Add history"
+msgstr "A&ntilde;adir historial"
+
+#: Layout_View.php:1019
+msgid "Add"
+msgstr "A&ntilde;adir"
+
+#: Layout_View.php:1661
 msgid "Client info"
 msgstr "Informaci&oacute;n del cliente"
 
-#: Layout_View.php:1601 Layout_View.php:1602
+#: Layout_View.php:1665 Layout_View.php:1666 Layout_View.php:2524
 msgid "First name"
 msgstr "Nombre(s)"
 
-#: Layout_View.php:1606 Layout_View.php:1607
+#: Layout_View.php:1670 Layout_View.php:1671 Layout_View.php:2530
 msgid "Last name"
 msgstr "Apellido(s)"
 
-#: Layout_View.php:1612
+#: Layout_View.php:1676 Layout_View.php:2536
 msgid "Phone one"
 msgstr "Tel&eacute;fono (1)"
 
-#: Layout_View.php:1625
+#: Layout_View.php:1689 Layout_View.php:2549
 msgid "Phone two"
 msgstr "Tel&eacute;fono (2)"
 
-#: Layout_View.php:1638
+#: Layout_View.php:1702 Layout_View.php:2562
 msgid "E-Mail one"
 msgstr "E-Mail (1)"
 
-#: Layout_View.php:1651
+#: Layout_View.php:1715 Layout_View.php:2575
 msgid "E-Mail two"
 msgstr "E-Mail (2)"
 
-#: Layout_View.php:1669 Layout_View.php:1670
+#: Layout_View.php:1733 Layout_View.php:1734 Layout_View.php:2593
+#: Layout_View.php:2594
 msgid "Address"
-msgstr "Direeci&oacute;n"
+msgstr "Direcci&oacute;n"
 
-#: Layout_View.php:1674 Layout_View.php:1675
+#: Layout_View.php:1738 Layout_View.php:1739 Layout_View.php:2598
+#: Layout_View.php:2599
 msgid "Notes"
 msgstr "Notas"
 
-#: Layout_View.php:1686
+#: Layout_View.php:1750
 msgid "Complete client profile"
 msgstr "Completar perfil del cliente"
 
-#: Layout_View.php:3027
+#: Layout_View.php:2374
+msgid "Change user avatar"
+msgstr "Cambiar imagen de perfil"
+
+#: Layout_View.php:2383
+msgid "Avatar"
+msgstr "Foto"
+
+#: Layout_View.php:2388
+msgid "Browse"
+msgstr "Explorar"
+
+#: Layout_View.php:2410
+msgid "Send e-mail to"
+msgstr "Enviar E-Mail a"
+
+#: Layout_View.php:2415
+msgid "Compose New Message"
+msgstr "Crear nuevo mensage"
+
+#: Layout_View.php:2430
+msgid "Attachment"
+msgstr "Adjunto"
+
+#: Layout_View.php:2439
+msgid "Send"
+msgstr "Enviar"
+
+#: Layout_View.php:2447
+msgid "Close"
+msgstr "Cerrar"
+
+#: Layout_View.php:2469
+msgid "Delete client"
+msgstr "Eliminar cliente"
+
+#: Layout_View.php:2470 Layout_View.php:2606
+msgid "Update info"
+msgstr "Actualizar informaci&oacute;n"
+
+#: Layout_View.php:2512
+msgid "Send E-Mail"
+msgstr "Enviar E-Mail"
+
+#: Layout_View.php:2607
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: Layout_View.php:2631
+msgid "History"
+msgstr "Historial"
+
+#: Layout_View.php:2632
+msgid "Client Dashboard"
+msgstr "Panel de Control"
+
+#: Layout_View.php:2718
 msgid "All rights reserved"
 msgstr "Todos los derechos reservados"
 

@@ -1011,12 +1011,12 @@ class Layout_View
    		?>
    		<div class="col-sm-12 history-member-panel">
 			<div class="text-right">
-				<a href="javascript:void(0);" class="btn btn-info btn-sm display-add-history">Add history</a>
+				<a href="javascript:void(0);" class="btn btn-info btn-sm display-add-history"><?php echo _("Add history"); ?></a>
 			</div>
 			
 			<div class="history-member-box">
 				<textarea rows="2" cols="" class="form-control" placeholder="history" id="history-entry"></textarea>
-				<a href="javascript:void(0);" class="btn btn-info btn-xs" id="add-history">Add</a>
+				<a href="javascript:void(0);" class="btn btn-info btn-xs" id="add-history"><?php echo _("Add"); ?></a>
 			</div>
 			
 			<div class="history-content">
@@ -2371,7 +2371,7 @@ class Layout_View
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title">Change user avatar</h4>
+							<h4 class="modal-title"><?php echo _("Change user avatar"); ?></h4>
 						</div>
 						<div class="modal-body">
 							<div class="row">
@@ -2380,12 +2380,12 @@ class Layout_View
 										<img alt="" height="100" id="iconImg" src="<?php echo $img; ?>" />
 									</div>
 									<div class="col-sm-3">
-										<h5><b>Avatar</b> 128 * 128px</h5>
+										<h5><b><?php echo _("Avatar"); ?></b> 128 * 128px</h5>
 									</div>
 								</div>
 								<div class="col-sm-12">
 									<div class="col-sm-6" id="uploadAvatar">
-										Browse
+										<?php echo _("Browse"); ?>
 									</div>
 								</div>
 							</div>
@@ -2407,12 +2407,12 @@ class Layout_View
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title">Send e-mail to <?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></h4>
+							<h4 class="modal-title"><?php echo _("Send e-mail to"); ?> <?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></h4>
 						</div>
 						<div class="modal-body">
 							<div class="box box-primary">
 								<div class="box-header with-border">
-									<h3 class="box-title">Compose New Message</h3>
+									<h3 class="box-title"><?php _("Compose New Message"); ?></h3>
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body">
@@ -2427,7 +2427,7 @@ class Layout_View
 									</div>
 									<div class="form-group">
 										<div class="btn btn-default btn-file">
-											<i class="fa fa-paperclip"></i> Attachment
+											<i class="fa fa-paperclip"></i> <?php echo _("Attachment"); ?>
 											<input type="file" name="attachment">
 										</div>
 										<p class="help-block">Max. 32MB</p>
@@ -2436,7 +2436,7 @@ class Layout_View
 								<!-- /.box-body -->
 								<div class="box-footer">
 									<div class="pull-right">
-										<button type="submit" class="btn btn-primary" id="sendEmailOwner"><i class="fa fa-envelope-o"></i> Send</button>
+										<button type="submit" class="btn btn-primary" id="sendEmailOwner"><i class="fa fa-envelope-o"></i> <?php echo _("Send"); ?></button>
 									</div>
 								</div>
 								<!-- /.box-footer -->
@@ -2444,7 +2444,7 @@ class Layout_View
 							<!-- /. box -->
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-default pull-left" data-dismiss="modal"><?php echo _("Close"); ?></button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
@@ -2466,8 +2466,8 @@ class Layout_View
 						<h3 class="widget-user-username"><strong><?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></strong></h3>
 						<h5 class="widget-user-desc"><strong><?php echo $this->data['memberInfo']['condo']; ?></strong></h5>
 						
-						<button type="submit" class="btn btn-danger btn-xs pull-right " id="deleteOwner">Delete owner</button>
-						<button type="submit" class="btn btn-primary btn-xs pull-right" id="showEditUser">Update info</button>
+						<button type="submit" class="btn btn-danger btn-xs pull-right " id="deleteOwner"><?php echo _("Delete client"); ?></button>
+						<button type="submit" class="btn btn-primary btn-xs pull-right" id="showEditUser"><?php echo _("Update info"); ?></button>
 						<div class="clearfix"></div>
 					</div>
 					<div class="box-footer">
@@ -2508,11 +2508,8 @@ class Layout_View
 							<?php if ($this->data['memberInfo']['address']) {?>
 							<li><span><i class="fa fa-fw fa-map-o"></i> <?php echo $this->data['memberInfo']['address']; ?></span></li>
 							<?php } ?>
-							<?php if ($this->data['memberInfo']['condo']) {?>
-							<li><span><i class="fa fa-fw fa-pie-chart"></i>Percentage <?php echo $this->data['memberInfo']['condo']; ?></span></li>
-							<?php } ?>
 							<li><span><i class="fa fa-fw fa-sticky-note"></i><strong> <?php echo $this->data['memberInfo']['notes']; ?></strong></span></li>
-							<li><span> <button data-target="#sendEmail" type="submit" class="btn btn-info pull-left btn-sm" data-toggle="modal">Send E-Mail</button></span></li>
+							<li><span> <button data-target="#sendEmail" type="submit" class="btn btn-info pull-left btn-sm" data-toggle="modal"><?php echo _("Send E-Mail"); ?></button></span></li>
 						</ul>
 					</div>
 				</div><!-- /.widget-user -->
@@ -2524,19 +2521,19 @@ class Layout_View
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">First name</label>
+							<label for="exampleInputEmail1"><?php echo _("First name"); ?></label>
 							<input type="hidden" id="memberId" value="<?php echo $this->data['memberInfo']['member_id']; ?>">
 							<input type="text" class="form-control" id="memberFirst" placeholder="First Name" value="<?php echo $this->data['memberInfo']['name']; ?>" >
 						</div>
 						
 						<div class="form-group">
-							<label for="exampleInputEmail1">Last name</label>
+							<label for="exampleInputEmail1"><?php echo _("Last name"); ?></label>
 							<input type="text" class="form-control" id="memberLast" placeholder="Last Name" value="<?php echo $this->data['memberInfo']['last_name']; ?>" >
 						</div>
                         
                         <!-- phone mask -->
 						<div class="form-group">
-							<label>Phone one:</label>
+							<label><?php echo _("Phone one"); ?>:</label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-phone"></i>
@@ -2549,7 +2546,7 @@ class Layout_View
 						
 						<!-- phone mask -->
 						<div class="form-group">
-							<label>Phone two:</label>
+							<label><?php echo _("Phone two"); ?>:</label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-phone"></i>
@@ -2562,7 +2559,7 @@ class Layout_View
 						
 						<!-- email mask -->
 						<div class="form-group">
-							<label>Email one:</label>
+							<label><?php echo _("E-Mail one"); ?>:</label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-envelope"></i>
@@ -2575,7 +2572,7 @@ class Layout_View
 						
 						<!-- email mask -->
 						<div class="form-group">
-							<label>Email two:</label>
+							<label><?php echo _("E-Mail two"); ?>:</label>
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="fa fa-envelope"></i>
@@ -2593,26 +2590,21 @@ class Layout_View
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Individual percentage </label>
-							<input type="text" class="form-control" id="memberCondo" placeholder="Condo" value="<?php echo $this->data['memberInfo']['condo']; ?>">
+							<label for="exampleInputEmail1"><?php echo _("Address"); ?></label>
+							<textarea class="form-control" id="memberAddress" rows="3" placeholder="<?php echo _("Address"); ?> ..."><?php echo $this->data['memberInfo']['address']; ?></textarea>
 						</div>
 						
 						<div class="form-group">
-							<label for="exampleInputEmail1">Address</label>
-							<textarea class="form-control" id="memberAddress" rows="3" placeholder="Address ..."><?php echo $this->data['memberInfo']['address']; ?></textarea>
-						</div>
-						
-						<div class="form-group">
-							<label for="exampleInputEmail1">Notes</label>
-							<textarea class="form-control" id="notes" rows="5" placeholder="Notes ..."><?php echo $this->data['memberInfo']['notes']; ?></textarea>
+							<label for="exampleInputEmail1"><?php echo _("Notes"); ?></label>
+							<textarea class="form-control" id="notes" rows="5" placeholder="<?php echo _("Notes"); ?> ..."><?php echo $this->data['memberInfo']['notes']; ?></textarea>
 						</div>
 					</div>
 					
 					<div class="box-footer">
 						<div class="row">
 							<div class="col-sm-offset-6 col-sm-2"></div>
-							<div class="col-sm-2"><button type="submit" class="btn btn-info pull-right btn-sm" id="updateMember">Update info</button></div>
-							<div class="col-sm-2"><button type="submit" class="btn btn-danger pull-right btn-sm" id="cancelEditUser">Cancel</button></div>
+							<div class="col-sm-2"><button type="submit" class="btn btn-info pull-right btn-sm" id="updateMember"><?php echo _("Update info"); ?></button></div>
+							<div class="col-sm-2"><button type="submit" class="btn btn-danger pull-right btn-sm" id="cancelEditUser"><?php echo _("Cancel"); ?></button></div>
 						</div>
                   	</div>
 				</div>
@@ -2632,22 +2624,24 @@ class Layout_View
 								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
 							</ul>
 						</li> -->
-						<li><a href="#tab_1-1" data-toggle="tab">Tasks</a></li>
-						<li><a href="#tab_2-2" data-toggle="tab">History</a></li>
-						<li><a href="#tab_3-3" data-toggle="tab" id="tabMessageSender" onclick="scrollToBottom();">Messages</a></li>
-						<li class="active"><a href="#tab_3-2" data-toggle="tab">Apartments</a></li>
-						<li class="pull-left header"><i class="fa fa-th"></i>Admin Owner</li>
+						
+						<li><a href="#tab_3-2" data-toggle="tab"><?php echo _("E-Mail"); ?></a></li>
+						<li><a href="#tab_3-3" data-toggle="tab" id="tabMessageSender" onclick="scrollToBottom();"><?php echo _("Messages"); ?></a></li>
+						<li><a href="#tab_1-1" data-toggle="tab"><?php echo _("Tasks"); ?></a></li>
+						<li class="active"><a href="#tab_2-2" data-toggle="tab"><?php echo _("History"); ?></a></li>
+						<li class="pull-left header"><i class="fa fa-th"></i><?php echo _("Client Dashboard"); ?></li>
 					</ul>
 					<div class="tab-content">
-						<div class="tab-pane active" id="tab_3-2">
-							<?php echo $this->getRoomPanel(); ?>
+						<div class="tab-pane" id="tab_3-2">
+							<?php //echo $this->getRoomPanel(); ?>
+							email thing
 						</div><!-- /.tab-pane -->
 						
 						<div class="tab-pane" id="tab_3-3">
 							<?php echo $this->getMessagesPanel(); ?>
 						</div><!-- /.tab-pane -->
 						
-						<div class="tab-pane" id="tab_2-2">
+						<div class="tab-pane active" id="tab_2-2">
 							<div class="row">
 								<?php echo $this->getHistoryPanel(); ?>
 							</div>
@@ -2666,373 +2660,6 @@ class Layout_View
         ob_end_clean();
         return $content;
     }
-    
-    public function getRoomsHead()
-    {
-    	ob_start();
-    	?>
-    	<!-- Select2 -->
-    <link rel="stylesheet" href="/plugins/select2/select2.min.css">
-    	<?php
-    	$head = ob_get_contents();
-    	ob_end_clean();
-    	return $head;
-    }
-    
-    public function getRoomsScripts()
-    {
-    	ob_start();
-    	?>
-		<!-- Select2 -->
-    	<script src="/plugins/select2/select2.full.min.js"></script>
-		<script type="text/javascript">
-		$(function () {
-	        //Initialize Select2 Elements
-	        $(".select2").select2();
-		});
-		</script>
-    	<script src="/js/rooms.js"></script>
-    	<?php
-    	$scripts = ob_get_contents();
-    	ob_end_clean();
-    	return $scripts;
-    }
-    
-    public function getRoomsContent()
-    {
-    	ob_start();
-    	?>
-		<div class="box box-default">
-			<div class="box-header with-border">
-				<h3 class="box-title">Add Room</h3>
-            </div><!-- /.box-header -->
-            <div class="box-body" style="display: block;">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="form-group">
-							<label for="exampleInputEmail1">Room name</label>
-							<input type="text" class="form-control" id="roomName" placeholder="Room name" value="" >
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-					
-					<div class="col-md-4">
-						<div class="form-group">
-							<label>Room type</label>
-							<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="roomType">
-								<?php 
-								foreach ($this->data['types'] as $type)
-								{
-									?>
-								<option value="<?php echo $type['room_type_id']; ?>"><?php echo $type['room_type']; ?></option>
-									<?php
-								}
-								?>
-							</select>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-					
-					<div class="col-md-4">
-						<div class="form-group">
-							<label>Condo</label>
-							<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="condoId">
-								<?php 
-								foreach ($this->data['condos'] as $type)
-								{
-									?>
-								<option value="<?php echo $type['condo_id']; ?>"><?php echo $type['condo']; ?></option>
-									<?php
-								}
-								?>
-							</select>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group">
-							<label for="exampleInputEmail1">Description</label>
-							<textarea class="form-control" rows="3" placeholder="Room description ..." id="roomDescription"></textarea>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-				</div>
-			</div><!-- /.box-body -->
-			
-			<div class="box-footer">
-				<button type="submit" class="btn btn-info pull-right" id="addRoom">Add room</button>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="box box-widget widget-user-2">
-					<div class="box-footer no-padding">
-						<ul class="nav nav-stacked" id="roomsBox">
-							<?php 
-							if ($this->data['rooms'])
-							{
-								foreach ($this->data['rooms'] as $room)
-								{
-									?>
-							<li>
-								<a href="/edit-room/<?php echo $room['room_id']; ?>/">
-									<strong>[<?php echo $room['condo']; ?>]</strong>
-									<?php echo $room['room'].' / '.$room['room_type']; ?>
-								</a>
-							</li>
-									<?php
-								}
-							}
-							?>
-						</ul>
-					</div>
-				</div><!-- /.widget-user -->
-			</div><!-- /.col -->
-        </div>
-        <?php
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
-    }
-    
-    public function getRoomHead()
-    {
-    	ob_start();
-    	?>
-    	<!-- Select2 -->
-    	<link rel="stylesheet" href="/plugins/select2/select2.min.css">
-    	<?php
-    	$head = ob_get_contents();
-    	ob_end_clean();
-    	return $head;
-    }
-    
-    public function getRoomScripts()
-    {
-    	ob_start();
-    	?>
-		<!-- Select2 -->
-    	<script src="/plugins/select2/select2.full.min.js"></script>
-		<script type="text/javascript">
-		$(function () {
-	        //Initialize Select2 Elements
-	        $(".select2").select2();
-		});
-		</script>
-    	<script src="/js/rooms.js"></script>
-    	<?php
-    	$scripts = ob_get_contents();
-    	ob_end_clean();
-    	return $scripts;
-    }
-    
-    public function getRoomContent()
-    {
-    	ob_start();
-    	?>
-		<div class="box box-success">
-			<div class="box-header with-border">
-				<h3 class="box-title">Update Room</h3>
-            </div><!-- /.box-header -->
-            <div class="box-body" style="display: block;">
-				<div class="row">
-					<div class="col-md-4">
-						<input type="hidden" id="roomId" value="<?php echo $this->data['room']['room_id']; ?>" >
-						<div class="form-group">
-							<label for="exampleInputEmail1">Room name</label>
-							<input type="text" class="form-control" id="roomName" placeholder="Room name" value="<?php echo $this->data['room']['room']; ?>" >
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-					
-					<div class="col-md-4">
-						<div class="form-group">
-							<label>Room type</label>
-							<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="roomType">
-								<?php 
-								foreach ($this->data['types'] as $type)
-								{
-									?>
-								<option value="<?php echo $type['room_type_id']; ?>"><?php echo $type['room_type']; ?></option>
-									<?php
-								}
-								?>
-							</select>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-					
-					<div class="col-md-4">
-						<div class="form-group">
-							<label>Condo</label>
-							<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="condoId">
-								<?php 
-								foreach ($this->data['condos'] as $type)
-								{
-									?>
-								<option value="<?php echo $type['condo_id']; ?>"><?php echo $type['condo']; ?></option>
-									<?php
-								}
-								?>
-							</select>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group">
-							<label for="exampleInputEmail1">Description</label>
-							<textarea class="form-control" rows="3" placeholder="Room description ..." id="roomDescription"><?php echo $this->data['room']['description']; ?></textarea>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-				</div>
-			</div><!-- /.box-body -->
-			
-			<div class="box-footer">
-				<button type="submit" class="btn btn-danger btn-sm pull-right" id="deleteRoom">Delete room</button>
-				<button type="submit" class="btn btn-info btn-sm pull-right" id="updateRoom">Update room</button>
-			</div>
-		</div>
-		
-		<div class="box box-info">
-			<div class="box-header with-border">
-				<h3 class="box-title">Add inventory to the room</h3>
-            </div><!-- /.box-header -->
-            <div class="box-body" style="display: block;">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<label>Categories</label>
-							<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="categoriesList">
-								<?php 
-								foreach ($this->data['categories'] as $category)
-								{
-									?>
-								<option value="<?php echo $category['category_id']; ?>"><?php echo $category['category']; ?></option>
-									<?php
-								}
-								?>
-							</select>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-					
-					<div class="col-md-6">
-						<div class="form-group">
-							<label>Inventory</label>
-							<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="inventoryList">
-							<?php 
-							if ($this->data['inventory'])
-							{
-								foreach ($this->data['inventory'] as $inventory)
-								{
-									?>
-								<option value="<?php echo $inventory['inventory_id']; ?>"><?php echo $inventory['inventory']; ?></option>
-									<?php
-								}
-							}
-							else 
-							{
-								?>
-								<option value="0">Inventory empty</option>
-								<?php 
-							}
-							?>
-							</select>
-                  		</div><!-- /.form-group -->
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-			</div><!-- /.box-body -->
-			
-			<div class="box-footer">
-				<button type="submit" class="btn btn-info btn-sm pull-right" id="addRoomInventory">Add inventory</button>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="box box-success box-widget widget-user-2">
-					<div class="box-footer no-padding">
-						<ul class="nav nav-stacked" id="inventoryBox">
-							<?php 
-							if ($this->data['roomInventory'])
-							{
-								foreach ($this->data['roomInventory'] as $inventory)
-								{
-									?>
-							<li><a href="#"><?php echo $inventory['category'].' / '.$inventory['inventory']; ?></a></li>
-									<?php
-								}
-							}
-							?>
-						</ul>
-					</div>
-				</div><!-- /.widget-user -->
-			</div><!-- /.col -->
-        </div>
-        <?php
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
-    }
-    
-    /**
-   	 * The whole list of members
-   	 * 
-   	 * @return string
-   	 */
-   	public function getRoomsByCondo()
-   	{
-   		ob_start();
-   		?>
-   		<div class="row">
-			<div class="col-xs-12">
-				<div class="box">
-					<div class="box-header">
-						<h3 class="box-title">Recent Owners</h3>
-					</div><!-- /.box-header -->
-					<div class="box-body table-responsive no-padding">
-	                  <table class="table table-hover">
-	                    <tr>
-	                      <th>Member ID</th>
-							<th>Name</th>
-							<th>Room</th>
-							<th>Condo</th>
-							<th>Total</th>
-							<th>Paid</th>
-							<th>Pending</th>
-	                    </tr>
-	                    <?php 
-						foreach ($this->data['members'] as $member)
-						{
-							?>
-						<tr>
-							<td>
-								<a href="/owner/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/">
-									<?php echo $member['member_id']; ?>
-								</a>
-							</td>
-							<td>
-								<a href="/owner/<?php echo $member['member_id']; ?>/<?php echo Tools::slugify($member['name'].' '.$member['last_name']); ?>/" class="member-link">
-									<?php echo $member['name'].' '.$member['last_name']; ?>
-								</a>
-							</td>
-							<td><?php echo $member['room']; ?></td>
-							<td><?php echo $member['condo']; ?></td>
-							<td>$ <?php echo $member['total']; ?></td>
-							<td>$ <?php echo $member['paid']; ?></td>
-							<td>$ <?php echo $member['pending']; ?></td>
-						</tr>
-							<?php
-						}
-						?>
-	                  </table>
-                	</div><!-- /.box-body -->
-				</div><!-- /.box -->
-			</div>
-		</div>
-   		
-   	   	<?php
-   	   	$membersRecent = ob_get_contents();
-   	   	ob_end_clean();
-   	   	return $membersRecent;
-   	}    
     
     public function getSectionHead()
     {
