@@ -2363,298 +2363,566 @@ class Layout_View
     		$img = "/images/owners-profile/avatar/".$this->data['memberInfo']['avatar'];
     	}
     	?>
-    	
     	<!-- Modal  -->
-		<div class="example-modal" >
-			<div class="modal" id="avatarModal">
-				<div class="modal-dialog modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title"><?php echo _("Change user avatar"); ?></h4>
-						</div>
-						<div class="modal-body">
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="col-sm-4">
-										<img alt="" height="100" id="iconImg" src="<?php echo $img; ?>" />
-									</div>
-									<div class="col-sm-3">
-										<h5><b><?php echo _("Avatar"); ?></b> 128 * 128px</h5>
-									</div>
-								</div>
-								<div class="col-sm-12">
-									<div class="col-sm-6" id="uploadAvatar">
-										<?php echo _("Browse"); ?>
-									</div>
-								</div>
-							</div>
-							<br>
-							<div class="clearfix"></div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div><!-- /.example-modal -->
+        <div class="example-modal" >
+            <div class="modal" id="avatarModal">
+                <div class="modal-dialog modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><?php echo _("Change user avatar"); ?></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-4">
+                                        <img alt="" height="100" id="iconImg" src="<?php echo $img; ?>" />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5><b><?php echo _("Avatar"); ?></b> 128 * 128px</h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" id="uploadAvatar">
+                                        <?php echo _("Browse"); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div><!-- /.example-modal -->
 		
-		<!-- Modal Send Email  -->
-		<div class="example-modal" >
-			<div class="modal" id="sendEmail">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title"><?php echo _("Send e-mail to"); ?> <?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></h4>
-						</div>
-						<div class="modal-body">
-							<div class="box box-primary">
-								<div class="box-header with-border">
-									<h3 class="box-title"><?php _("Compose New Message"); ?></h3>
-								</div>
-								<!-- /.box-header -->
-								<div class="box-body">
-									<div class="form-group">
-										<input class="form-control" placeholder="To:" value="<?php echo $this->data['memberInfo']['email_one']; ?>" id="sendEmailTo">
-									</div>
-									<div class="form-group">
-										<input class="form-control" placeholder="Subject:" id="sendEmailSubject">
-									</div>
-									<div class="form-group">
-										<textarea id="sendEmailContent" class="form-control" style="height: 300px"></textarea>
-									</div>
-									<div class="form-group">
-										<div class="btn btn-default btn-file">
-											<i class="fa fa-paperclip"></i> <?php echo _("Attachment"); ?>
-											<input type="file" name="attachment">
-										</div>
-										<p class="help-block">Max. 32MB</p>
-									</div>
-								</div>
-								<!-- /.box-body -->
-								<div class="box-footer">
-									<div class="pull-right">
-										<button type="submit" class="btn btn-primary" id="sendEmailOwner"><i class="fa fa-envelope-o"></i> <?php echo _("Send"); ?></button>
-									</div>
-								</div>
-								<!-- /.box-footer -->
-							</div>
-							<!-- /. box -->
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default pull-left" data-dismiss="modal"><?php echo _("Close"); ?></button>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div><!-- /.example-modal -->
+        <!-- Modal Send Email  -->
+        <div class="example-modal" >
+            <div class="modal" id="sendEmail">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"><?php echo _("Send e-mail to"); ?> <?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><?php _("Compose New Message"); ?></h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="To:" value="<?php echo $this->data['memberInfo']['email_one']; ?>" id="sendEmailTo">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Subject:" id="sendEmailSubject">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea id="sendEmailContent" class="form-control" style="height: 300px"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="btn btn-default btn-file">
+                                            <i class="fa fa-paperclip"></i> <?php echo _("Attachment"); ?>
+                                            <input type="file" name="attachment">
+                                        </div>
+                                        <p class="help-block">Max. 32MB</p>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary" id="sendEmailOwner"><i class="fa fa-envelope-o"></i> <?php echo _("Send"); ?></button>
+                                    </div>
+                                </div>
+                                <!-- /.box-footer -->
+                            </div>
+                            <!-- /. box -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><?php echo _("Close"); ?></button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div><!-- /.example-modal -->
 		
     	<div class="row">
-			<div class="col-md-12">
-				<!-- Widget: user widget style 1 -->
-				<div class="box box-widget widget-user-2">
+            <div class="col-md-12">
+                <!-- Widget: user widget style 1 -->
+                <div class="box box-widget widget-user-2">
 				
-					<!-- Add the bg color to the header using any of the bg-* classes -->
-					<div class="widget-user-header bg-aqua-active">
-						<div class="widget-user-image">
-							<a href="#" class="avatar-user-change" data-toggle="modal" data-target="#avatarModal" data-keyboard="true">
-								<img class="img-circle" id="userAvatarImg" src="<?php echo $img; ?>" alt="User Avatar">
-							</a>
-						</div><!-- /.widget-user-image -->
-						<h3 class="widget-user-username"><strong><?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></strong></h3>
-						<h5 class="widget-user-desc"><strong><?php echo $this->data['memberInfo']['condo']; ?></strong></h5>
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-aqua-active">
+                        <div class="widget-user-image">
+                            <a href="#" class="avatar-user-change" data-toggle="modal" data-target="#avatarModal" data-keyboard="true">
+                                <img class="img-circle" id="userAvatarImg" src="<?php echo $img; ?>" alt="User Avatar">
+                            </a>
+                        </div><!-- /.widget-user-image -->
+                        <h3 class="widget-user-username"><strong><?php echo $this->data['memberInfo']['name'].' '.$this->data['memberInfo']['last_name']; ?></strong></h3>
+                        <h5 class="widget-user-desc"><strong><?php echo $this->data['memberInfo']['condo']; ?></strong></h5>
 						
-						<button type="submit" class="btn btn-danger btn-xs pull-right " id="deleteOwner"><?php echo _("Delete client"); ?></button>
-						<button type="submit" class="btn btn-primary btn-xs pull-right" id="showEditUser"><?php echo _("Update info"); ?></button>
-						<div class="clearfix"></div>
-					</div>
-					<div class="box-footer">
-						<div class="row">
-							<?php if ($this->data['memberInfo']['phone_one']) {?>
-							<div class="col-sm-3 border-right">
-								<div class="description-block">
-									<h5 class="description-header"><i class="fa fa-fw fa-phone"></i></h5>
-									<span class="description-text"><?php echo $this->data['memberInfo']['phone_one']; ?></span>
-								</div><!-- /.description-block -->
-							</div><!-- /.col -->
-							<?php } if ($this->data['memberInfo']['phone_two']) {?>
-							<div class="col-sm-3 border-right">
-								<div class="description-block">
-									<h5 class="description-header"><i class="fa fa-fw fa-phone"></i></h5>
-									<span class="description-text"><?php echo $this->data['memberInfo']['phone_two']; ?></span>
-								</div><!-- /.description-block -->
-							</div><!-- /.col -->
-							<?php } if ($this->data['memberInfo']['email_one']) {?>
-							<div class="col-sm-3">
-								<div class="description-block">
-									<h5 class="description-header"><i class="fa fa-fw fa-envelope-o"></i></h5>
-									<span class="description-text"><?php echo $this->data['memberInfo']['email_one']; ?></span>
-								</div><!-- /.description-block -->
-							</div><!-- /.col -->
-							<?php } if ($this->data['memberInfo']['email_two']) {?>                   
-							<div class="col-sm-3">
-								<div class="description-block">
-									<h5 class="description-header"><i class="fa fa-fw fa-envelope-o"></i></h5>
-									<span class="description-text"><?php echo $this->data['memberInfo']['email_two']; ?></span>
-								</div><!-- /.description-block -->
-							</div><!-- /.col -->
-							<?php } ?>
-						</div><!-- /.row -->
-					</div>
-					<div class="box-footer no-padding">
-						<ul class="nav nav-stacked user-info">
-							<?php if ($this->data['memberInfo']['address']) {?>
-							<li><span><i class="fa fa-fw fa-map-o"></i> <?php echo $this->data['memberInfo']['address']; ?></span></li>
-							<?php } ?>
-							<li><span><i class="fa fa-fw fa-sticky-note"></i><strong> <?php echo $this->data['memberInfo']['notes']; ?></strong></span></li>
-							<li><span> <button data-target="#sendEmail" type="submit" class="btn btn-info pull-left btn-sm" data-toggle="modal"><?php echo _("Send E-Mail"); ?></button></span></li>
-						</ul>
-					</div>
-				</div><!-- /.widget-user -->
-			</div>
+                        <button type="submit" class="btn btn-danger btn-xs pull-right " id="deleteOwner"><?php echo _("Delete client"); ?></button>
+                        <button type="submit" class="btn btn-primary btn-xs pull-right" id="showEditUser"><?php echo _("Update info"); ?></button>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <?php if ($this->data['memberInfo']['phone_one']) {?>
+                            <div class="col-sm-3 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header"><i class="fa fa-fw fa-phone"></i></h5>
+                                    <span class="description-text"><?php echo $this->data['memberInfo']['phone_one']; ?></span>
+                                </div><!-- /.description-block -->
+                            </div><!-- /.col -->
+                            <?php } if ($this->data['memberInfo']['phone_two']) {?>
+                            <div class="col-sm-3 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header"><i class="fa fa-fw fa-phone"></i></h5>
+                                    <span class="description-text"><?php echo $this->data['memberInfo']['phone_two']; ?></span>
+                                </div><!-- /.description-block -->
+                            </div><!-- /.col -->
+                            <?php } if ($this->data['memberInfo']['email_one']) {?>
+                            <div class="col-sm-3">
+                                <div class="description-block">
+                                    <h5 class="description-header"><i class="fa fa-fw fa-envelope-o"></i></h5>
+                                    <span class="description-text"><?php echo $this->data['memberInfo']['email_one']; ?></span>
+                                </div><!-- /.description-block -->
+                            </div><!-- /.col -->
+                            <?php } if ($this->data['memberInfo']['email_two']) {?>                   
+                            <div class="col-sm-3">
+                                <div class="description-block">
+                                    <h5 class="description-header"><i class="fa fa-fw fa-envelope-o"></i></h5>
+                                    <span class="description-text"><?php echo $this->data['memberInfo']['email_two']; ?></span>
+                                </div><!-- /.description-block -->
+                            </div><!-- /.col -->
+                            <?php } ?>
+                        </div><!-- /.row -->
+                    </div>
+                    <div class="box-footer no-padding">
+                        <ul class="nav nav-stacked user-info">
+                            <?php if ($this->data['memberInfo']['address']) {?>
+                            <li><span><i class="fa fa-fw fa-map-o"></i> <?php echo $this->data['memberInfo']['address']; ?></span></li>
+                            <?php } ?>
+                            <li><span><i class="fa fa-fw fa-sticky-note"></i><strong> <?php echo $this->data['memberInfo']['notes']; ?></strong></span></li>
+                            <li><span> <button data-target="#sendEmail" type="submit" class="btn btn-info pull-left btn-sm" data-toggle="modal"><?php echo _("Send E-Mail"); ?></button></span></li>
+                        </ul>
+                    </div>
+                </div><!-- /.widget-user -->
+            </div>
     	</div>
     	
-		<div class="row edit-user-info">
-			<div class="col-md-6">
-				<div class="box box-info">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo _("First name"); ?></label>
-							<input type="hidden" id="memberId" value="<?php echo $this->data['memberInfo']['member_id']; ?>">
-							<input type="text" class="form-control" id="memberFirst" placeholder="First Name" value="<?php echo $this->data['memberInfo']['name']; ?>" >
-						</div>
+        <div class="row edit-user-info">
+            <div class="col-md-6">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><?php echo _("First name"); ?></label>
+                            <input type="hidden" id="memberId" value="<?php echo $this->data['memberInfo']['member_id']; ?>">
+                            <input type="text" class="form-control" id="memberFirst" placeholder="First Name" value="<?php echo $this->data['memberInfo']['name']; ?>" >
+                        </div>
 						
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo _("Last name"); ?></label>
-							<input type="text" class="form-control" id="memberLast" placeholder="Last Name" value="<?php echo $this->data['memberInfo']['last_name']; ?>" >
-						</div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><?php echo _("Last name"); ?></label>
+                            <input type="text" class="form-control" id="memberLast" placeholder="Last Name" value="<?php echo $this->data['memberInfo']['last_name']; ?>" >
+                        </div>
                         
                         <!-- phone mask -->
-						<div class="form-group">
-							<label><?php echo _("Phone one"); ?>:</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-phone"></i>
-								</div>
-								<input type="text" id="phoneOne" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?php echo $this->data['memberInfo']['phone_one']; ?>" >
-							</div>
-							<!-- /.input group -->
-						</div>
-						<!-- /.form group -->
+                        <div class="form-group">
+                            <label><?php echo _("Phone one"); ?>:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" id="phoneOne" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?php echo $this->data['memberInfo']['phone_one']; ?>" >
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <!-- /.form group -->
 						
-						<!-- phone mask -->
-						<div class="form-group">
-							<label><?php echo _("Phone two"); ?>:</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-phone"></i>
-								</div>
-								<input type="text" id="phoneTwo" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?php echo $this->data['memberInfo']['phone_two']; ?>" >
-							</div>
-							<!-- /.input group -->
-						</div>
-						<!-- /.form group -->
+                        <!-- phone mask -->
+                        <div class="form-group">
+                            <label><?php echo _("Phone two"); ?>:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" id="phoneTwo" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?php echo $this->data['memberInfo']['phone_two']; ?>" >
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <!-- /.form group -->
 						
-						<!-- email mask -->
-						<div class="form-group">
-							<label><?php echo _("E-Mail one"); ?>:</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-envelope"></i>
-								</div>
-								<input type="email" id="emailOne" class="form-control" data-inputmask='' id="emailOne" data-mask value="<?php echo $this->data['memberInfo']['email_one']; ?>" >
-							</div>
-							<!-- /.input group -->
-						</div>
-						<!-- /.form group -->
+                        <!-- email mask -->
+                        <div class="form-group">
+                            <label><?php echo _("E-Mail one"); ?>:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <input type="email" id="emailOne" class="form-control" data-inputmask='' id="emailOne" data-mask value="<?php echo $this->data['memberInfo']['email_one']; ?>" >
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <!-- /.form group -->
 						
-						<!-- email mask -->
-						<div class="form-group">
-							<label><?php echo _("E-Mail two"); ?>:</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-envelope"></i>
-								</div>
-								<input type="email" id="emailTwo" class="form-control" data-inputmask='' id="emailOne" data-mask value="<?php echo $this->data['memberInfo']['email_two']; ?>" >
-							</div>
-							<!-- /.input group -->
-						</div>
-						<!-- /.form group -->
-					</div>
-				</div>
-			</div>
+                        <!-- email mask -->
+                        <div class="form-group">
+                            <label><?php echo _("E-Mail two"); ?>:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <input type="email" id="emailTwo" class="form-control" data-inputmask='' id="emailOne" data-mask value="<?php echo $this->data['memberInfo']['email_two']; ?>" >
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <!-- /.form group -->
+                    </div>
+                </div>
+            </div>
 			
-			<div class="col-md-6">
-				<div class="box box-info">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo _("Address"); ?></label>
-							<textarea class="form-control" id="memberAddress" rows="3" placeholder="<?php echo _("Address"); ?> ..."><?php echo $this->data['memberInfo']['address']; ?></textarea>
-						</div>
+            <div class="col-md-6">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><?php echo _("Address"); ?></label>
+                            <textarea class="form-control" id="memberAddress" rows="3" placeholder="<?php echo _("Address"); ?> ..."><?php echo $this->data['memberInfo']['address']; ?></textarea>
+                        </div>
 						
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo _("Notes"); ?></label>
-							<textarea class="form-control" id="notes" rows="5" placeholder="<?php echo _("Notes"); ?> ..."><?php echo $this->data['memberInfo']['notes']; ?></textarea>
-						</div>
-					</div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><?php echo _("Notes"); ?></label>
+                            <textarea class="form-control" id="notes" rows="5" placeholder="<?php echo _("Notes"); ?> ..."><?php echo $this->data['memberInfo']['notes']; ?></textarea>
+                        </div>
+                    </div>
 					
-					<div class="box-footer">
-						<div class="row">
-							<div class="col-sm-offset-6 col-sm-2"></div>
-							<div class="col-sm-2"><button type="submit" class="btn btn-info pull-right btn-sm" id="updateMember"><?php echo _("Update info"); ?></button></div>
-							<div class="col-sm-2"><button type="submit" class="btn btn-danger pull-right btn-sm" id="cancelEditUser"><?php echo _("Cancel"); ?></button></div>
-						</div>
-                  	</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-				<!-- Custom Tabs (Pulled to the right) -->
-				<div class="nav-tabs-custom">
-					<ul class="nav nav-tabs pull-right">
-						<!-- <li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								Dropdown <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-							</ul>
-						</li> -->
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-sm-offset-6 col-sm-2"></div>
+                            <div class="col-sm-2"><button type="submit" class="btn btn-info pull-right btn-sm" id="updateMember"><?php echo _("Update info"); ?></button></div>
+                            <div class="col-sm-2"><button type="submit" class="btn btn-danger pull-right btn-sm" id="cancelEditUser"><?php echo _("Cancel"); ?></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Custom Tabs (Pulled to the right) -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs pull-right">
+                        <li><a href="#tab_3-2" data-toggle="tab"><?php echo _("E-Mail"); ?></a></li>
+                        <li><a href="#tab_3-3" data-toggle="tab" id="tabMessageSender" onclick="scrollToBottom();"><?php echo _("Messages"); ?></a></li>
+                        <li><a href="#tab_1-1" data-toggle="tab"><?php echo _("Tasks"); ?></a></li>
+                        <li class="active"><a href="#tab_2-2" data-toggle="tab"><?php echo _("History"); ?></a></li>
+                        <li class="pull-left header"><i class="fa fa-th"></i><?php echo _("Client Dashboard"); ?></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab_3-2">
+                            <?php //echo $this->getRoomPanel(); ?>
+                            email thing
+                        </div><!-- /.tab-pane -->
 						
-						<li><a href="#tab_3-2" data-toggle="tab"><?php echo _("E-Mail"); ?></a></li>
-						<li><a href="#tab_3-3" data-toggle="tab" id="tabMessageSender" onclick="scrollToBottom();"><?php echo _("Messages"); ?></a></li>
-						<li><a href="#tab_1-1" data-toggle="tab"><?php echo _("Tasks"); ?></a></li>
-						<li class="active"><a href="#tab_2-2" data-toggle="tab"><?php echo _("History"); ?></a></li>
-						<li class="pull-left header"><i class="fa fa-th"></i><?php echo _("Client Dashboard"); ?></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane" id="tab_3-2">
-							<?php //echo $this->getRoomPanel(); ?>
-							email thing
-						</div><!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_3-3">
+                            <?php echo $this->getMessagesPanel(); ?>
+                        </div><!-- /.tab-pane -->
 						
-						<div class="tab-pane" id="tab_3-3">
-							<?php echo $this->getMessagesPanel(); ?>
-						</div><!-- /.tab-pane -->
-						
-						<div class="tab-pane active" id="tab_2-2">
-							<div class="row">
-								<?php echo $this->getHistoryPanel(); ?>
-							</div>
-						</div><!-- /.tab-pane -->
-						<div class="tab-pane" id="tab_1-1">
-							<div class="row">
-								<?php echo $this->getTaskPanel(); ?>
-							</div>
-						</div><!-- /.tab-pane -->
-					</div><!-- /.tab-content -->
-				</div><!-- nav-tabs-custom -->
-			</div><!-- /.col -->
-		</div>
+                        <div class="tab-pane active" id="tab_2-2">
+                            <div class="row">
+                                <?php echo $this->getHistoryPanel(); ?>
+                            </div>
+                        </div><!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_1-1">
+                            <div class="row">
+                                <?php echo $this->getTaskPanel(); ?>
+                            </div>
+                        </div><!-- /.tab-pane -->
+                    </div><!-- /.tab-content -->
+                </div><!-- nav-tabs-custom -->
+            </div><!-- /.col -->
+        </div>
+                
+        <?php
+        $i = 0;
+        foreach ($this->data['checkouts'] as $checkOutMove)
+        {
+            $checkOutBank = $checkOutMove['checkout'];
+            $checkOutBill = $checkOutMove['billing'];
+            $checkOutDelivery = $checkOutMove['delivery'];
+            $products = $checkOutMove['products'];
+        ?>
+        <div class="box box-default color-palette-box">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-tag"></i> <?php echo $checkOutBank['reference']; ?></h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <h4 class="text-center">Bank Info</h4>
+                        <div class="box">
+                            <div class="box-header">
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td><strong>Reference</strong></td>
+                                            <td><?php echo $checkOutBank['reference']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Status</strong></td>
+                                            <td><?php echo $checkOutBank['response']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Foliocpagos</strong></td>
+                                            <td><?php echo $checkOutBank['foliocpagos']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Auth</strong></td>
+                                            <td><?php echo $checkOutBank['auth']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>CD Response</strong></td>
+                                            <td><?php echo $checkOutBank['cd_response']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>cd_error</strong></td>
+                                            <td><?php echo $checkOutBank['cd_error']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>nb_error</strong></td>
+                                            <td><?php echo $checkOutBank['nb_error']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Time</strong></td>
+                                            <td><?php echo $checkOutBank['time']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Date</strong></td>
+                                            <td><?php echo $checkOutBank['date']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>nb_company</strong></td>
+                                            <td><?php echo $checkOutBank['nb_company']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>nb_merchant</strong></td>
+                                            <td><?php echo $checkOutBank['nb_merchant']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>cc_type</strong></td>
+                                            <td><?php echo $checkOutBank['cc_type']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>tp_operation</strong></td>
+                                            <td><?php echo $checkOutBank['tp_operation']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>cc_name</strong></td>
+                                            <td><?php echo $checkOutBank['cc_name']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>cc_number</strong></td>
+                                            <td><?php echo $checkOutBank['cc_number']; ?></td>
+                                        </tr><tr>
+                                            <td><strong>cc_expmonth</strong></td>
+                                            <td><?php echo $checkOutBank['cc_expmonth']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>cc_expyear</strong></td>
+                                            <td><?php echo $checkOutBank['cc_expyear']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>amount</strong></td>
+                                            <td><?php echo $checkOutBank['amount']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>emv_key_date</strong></td>
+                                            <td><?php echo $checkOutBank['emv_key_date']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>id_url</strong></td>
+                                            <td><?php echo $checkOutBank['id_url']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>email</strong></td>
+                                            <td><?php echo $checkOutBank['email']; ?></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 col-md-4">
+                        <h4 class="text-center">Billing </h4>
+                        <div class="box">
+                            <div class="box-header">
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td><strong>Name</strong></td>
+                                            <td><?php echo $checkOutBill['name']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Last Name</strong></td>
+                                            <td><?php echo $checkOutBill['last_name']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Address</strong></td>
+                                            <td><?php echo $checkOutBill['address']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Phone</strong></td>
+                                            <td><?php echo $checkOutBill['phone_one']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Email</strong></td>
+                                            <td><?php echo $checkOutBill['email_one']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Date</strong></td>
+                                            <td><?php echo $checkOutBill['date']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Company</strong></td>
+                                            <td><?php echo $checkOutBill['company']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>City</strong></td>
+                                            <td><?php echo $checkOutBill['city']; ?></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        
+                        <?php
+                        if ($checkOutBill['has_delivery'] > 0)
+                        {
+                            ?>
+                        <h4 class="text-center">Shipping info </h4>
+                        <div class="box">
+                            <div class="box-header">
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td><strong>Name</strong></td>
+                                            <td><?php echo $checkOutDelivery['name']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Last Name</strong></td>
+                                            <td><?php echo $checkOutDelivery['last_name']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Address</strong></td>
+                                            <td><?php echo $checkOutDelivery['address']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Phone</strong></td>
+                                            <td><?php echo $checkOutDelivery['phone_one']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Email</strong></td>
+                                            <td><?php echo $checkOutDelivery['email_one']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Date</strong></td>
+                                            <td><?php echo $checkOutDelivery['date']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Company</strong></td>
+                                            <td><?php echo $checkOutDelivery['company']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>City</strong></td>
+                                            <td><?php echo $checkOutDelivery['city']; ?></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                            <?php
+                        }
+                        ?>
+                        
+                    </div>
+              
+                    <div class="col-sm-4 col-md-4">
+                        <h4 class="text-center">Products </h4>
+                        <div class="box">
+                            <div class="box-header">
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <th><strong>Product</strong></th>
+                                            <th>Amount</th>
+                                        </tr>
+                                        <?php
+                                        $total = 0;
+                                        foreach ($products as $product)
+                                        {
+                                            $total += $product['cost'];
+                                            ?>
+                                        <tr>
+                                            <td><?php echo $product['product_name']; ?></td>
+                                            <td><?php echo $product['cost']; ?> MXN</td>
+                                        </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        
+                                        
+                                        
+                                        <tr>
+                                            <td><strong>Total</strong></td>
+                                            <td><?php echo $total; ?> MXN</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+                    
+            <!-- /.col -->
+          </div>
+          
+        </div>
+        <!-- /.box-body -->
+      </div>
+                    
+          <?php
+          $i++;
+    }
+        ?>      
+                
         <?php
         $content = ob_get_contents();
         ob_end_clean();
@@ -2697,13 +2965,13 @@ class Layout_View
     }
     
    	
-   	/**
-   	 * The very awesome footer!
-   	 * 
-   	 * <s>useless</s>
-   	 * 
-   	 * @return string
-   	 */
+    /**
+     * The very awesome footer!
+     * 
+     * <s>useless</s>
+     * 
+     * @return string
+     */
     public function getFooter()
     {
     	ob_start();
@@ -2715,7 +2983,7 @@ class Layout_View
                 Smart Help Desk
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2016 <a href="#"><?php echo $this->data['appInfo']['siteName']; ?></a>.</strong> <?php echo _("All rights reserved"); ?>
+            <strong>Copyright &copy; 2018 <a href="#"><?php echo $this->data['appInfo']['siteName']; ?></a>.</strong> <?php echo _("All rights reserved"); ?>
         </footer>
     	<?php
     	$footer = ob_get_contents();

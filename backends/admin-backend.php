@@ -43,46 +43,46 @@ class generalBackend
 		$appInfoRow = $this->model->getGeneralAppInfo();
 		
 		$appInfo = array( 
-				'title' 		=> $appInfoRow['title'],
-				'siteName' 		=> $appInfoRow['site_name'],
-				'url' 			=> $appInfoRow['url'],
-				'content' 		=> $appInfoRow['content'],
+				'title' 	=> $appInfoRow['title'],
+				'siteName' 	=> $appInfoRow['site_name'],
+				'url' 		=> $appInfoRow['url'],
+				'content' 	=> $appInfoRow['content'],
 				'description'	=> $appInfoRow['description'],
-				'keywords' 		=> $appInfoRow['keywords'],
-				'location'		=> $appInfoRow['location'],	
-				'creator' 		=> $appInfoRow['creator'],
+				'keywords' 	=> $appInfoRow['keywords'],
+				'location'	=> $appInfoRow['location'],	
+				'creator' 	=> $appInfoRow['creator'],
 				'creatorUrl' 	=> $appInfoRow['creator_url'],
-				'twitter' 		=> $appInfoRow['twitter'],
-				'facebook' 		=> $appInfoRow['facebook'],
+				'twitter' 	=> $appInfoRow['twitter'],
+				'facebook' 	=> $appInfoRow['facebook'],
 				'googleplus' 	=> $appInfoRow['googleplus'],
 				'pinterest' 	=> $appInfoRow['pinterest'],
-				'linkedin' 		=> $appInfoRow['linkedin'],
-				'youtube' 		=> $appInfoRow['youtube'],
-				'instagram'		=> $appInfoRow['instagram'],
-				'email'			=> $appInfoRow['email'],
-				'lang'			=> $appInfoRow['lang'],
-				'phone'			=> $appInfoRow['phone']
+				'linkedin' 	=> $appInfoRow['linkedin'],
+				'youtube' 	=> $appInfoRow['youtube'],
+				'instagram'	=> $appInfoRow['instagram'],
+				'email'		=> $appInfoRow['email'],
+				'lang'		=> $appInfoRow['lang'],
+				'phone'		=> $appInfoRow['phone']
 		);
 		
 		$data['appInfo'] = $appInfo;
 
 		// Active Users
-		$usersActiveArray 			= $this->model->getActiveUsers();
+		$usersActiveArray 		= $this->model->getActiveUsers();
 		$data['usersActive'] 		= $usersActiveArray;
 		
 		// User Info
-		$userInfoRow 				= $this->model->getUserInfo();
-		$data['userInfo'] 			= $userInfoRow;
+		$userInfoRow 			= $this->model->getUserInfo();
+		$data['userInfo'] 		= $userInfoRow;
 		
 		// Last 20 members
-		$data['lastMembers'] 			= $this->model->getLastMembersActivity();
-		$data['lastMembersAdded'] 		= $this->model->getLastMembersAdded();
+		$data['lastMembers'] 		= $this->model->getLastMembersActivity();
+		$data['lastMembersAdded'] 	= $this->model->getLastMembersAdded();
 		
 		// Task Info
-		$data['taskInfo']['today'] 		= $this->model->getTotalTodayTasksByMemberId();
+		$data['taskInfo']['today'] 	= $this->model->getTotalTodayTasksByMemberId();
 		$data['taskInfo']['pending'] 	= $this->model->getTotalPendingTasksByMemberId();
 		$data['taskInfo']['future'] 	= $this->model->getTotalFutureTasksByMemberId();
-		$data['totalMembers'] 			= $this->model->getTotalMembers();
+		$data['totalMembers'] 		= $this->model->getTotalMembers();
 		
 		// Condo List
 		$condosArray = $this->model->getAllCondos();
@@ -156,9 +156,21 @@ class generalBackend
 // 				UPDATE LAST ACTIVITY 
 				$this->model->updateMemberActivityByMemberId($memberId);
 				
-				$memberInfoRow 			= $this->model->getMemberByMemberId($memberId);
+				$memberInfoRow          = $this->model->getMemberByMemberId($memberId);
 				$data['memberInfo'] 	= $memberInfoRow;
 				
+                                $checkOutsStr = $this->model->getCheckOutsStrByMemberId($memberId);
+                                $i = 0;
+                                
+                                foreach ($checkOutsStr as $str)
+                                {
+                                    $data['checkouts'][$i]['billing'] = $this->model->getCheckOutBillingByStr($str['checkout_str']);
+                                    $data['checkouts'][$i]['delivery'] = $this->model->getCheckOutDeliveryByStr($str['checkout_str']);
+                                    $data['checkouts'][$i]['products'] = $this->model->getCheckOutProductsByStr($str['checkout_str']);
+                                    $data['checkouts'][$i]['checkout'] = $this->model->getCheckOutByStr($str['checkout_str']);
+                                    $i++;
+                                }
+                                
 // 				History
 				$memberHistoryArray 	= $this->model->getMemberHistoryById($memberId);
 				$data['memberHistory'] 	= $memberHistoryArray;

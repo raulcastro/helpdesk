@@ -6,7 +6,7 @@ require_once $root.'/Framework/Back_Default_Header.php';
  * Contains the methods for interact with the databases
  *
  * @package    Reservation System
- * @subpackage Tropical Casa Blanca Hotel
+ * @subpackage Coralina 
  * @license    http://opensource.org/licenses/gpl-license.php  GNU Public License
  * @author     Raul Castro <rd.castro.silva@gmail.com>
  */
@@ -19,7 +19,7 @@ class Layout_Model
      */
 	public function __construct()
 	{
-		$this->db = new Mysqli_Tool(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+            $this->db = new Mysqli_Tool(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	}
 	
 	/**
@@ -33,14 +33,14 @@ class Layout_Model
 	
 	public function getGeneralAppInfo()
 	{
-		try {
-			$query = 'SELECT * FROM app_info';
-	
-			return $this->db->getRow($query);
-	
-		} catch (Exception $e) {
-			return false;
-		}
+            try {
+                $query = 'SELECT * FROM app_info';
+
+                return $this->db->getRow($query);
+
+            } catch (Exception $e) {
+                return false;
+            }
 	}
 	
 	/**
@@ -52,23 +52,23 @@ class Layout_Model
 	 */
 	public function getUserInfo()
 	{
-		try {
-			$query = "SELECT 
-					u.user_id,
-					u.type,
-					d.name, 
-					u.type, 
-					ue.email as user_email, 
-					ue.inbox
-					FROM users u 
-					LEFT JOIN user_detail d ON u.user_id = d.user_id 
-					LEFT JOIN user_emails ue ON u.user_id = ue.user_id
-					WHERE u.user_id = ".$_SESSION['userId'];
-			return $this->db->getRow($query);
-			
-		} catch (Exception $e) {
-			return false;
-		}
+            try {
+                $query = "SELECT 
+                        u.user_id,
+                        u.type,
+                        d.name, 
+                        u.type, 
+                        ue.email as user_email, 
+                        ue.inbox
+                        FROM users u 
+                        LEFT JOIN user_detail d ON u.user_id = d.user_id 
+                        LEFT JOIN user_emails ue ON u.user_id = ue.user_id
+                        WHERE u.user_id = ".$_SESSION['userId'];
+                return $this->db->getRow($query);
+
+            } catch (Exception $e) {
+                    return false;
+            }
 	}
 	
 	/**
@@ -95,45 +95,45 @@ class Layout_Model
 	
 	public function addMember($data)
 	{
-		try {
-			$query = 'INSERT INTO members
-					(
-					name, 
-					last_name, 
-					address, 
-					phone_one, 
-					phone_two, 
-					email_one, 
-					email_two, 
-					notes, 
-					condo,
-					user_id,
-					date
-					) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
-			
-			$prep = $this->db->prepare($query);
-			
-			$prep->bind_param('sssssssssi', 
-					$data['memberFirst'],
-					$data['memberLast'],
-					$data['memberAddress'],
-					$data['phoneOne'],
-					$data['phoneTwo'],
-					$data['emailOne'],
-					$data['emailTwo'],
-					$data['notes'],
-					$data['memberCondo'],
-					$_SESSION['userId']);
-			
-			if ($prep->execute())
-				return $prep->insert_id;
-			else 
-				printf("Errormessage: %s\n", $prep->error);
-			
-		} catch (Exception $e) {
-			
-			return false;
-		}
+            try {
+                $query = 'INSERT INTO members
+                                (
+                                name, 
+                                last_name, 
+                                address, 
+                                phone_one, 
+                                phone_two, 
+                                email_one, 
+                                email_two, 
+                                notes, 
+                                condo,
+                                user_id,
+                                date
+                                ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE())';
+
+                $prep = $this->db->prepare($query);
+
+                $prep->bind_param('sssssssssi', 
+                                $data['memberFirst'],
+                                $data['memberLast'],
+                                $data['memberAddress'],
+                                $data['phoneOne'],
+                                $data['phoneTwo'],
+                                $data['emailOne'],
+                                $data['emailTwo'],
+                                $data['notes'],
+                                $data['memberCondo'],
+                                $_SESSION['userId']);
+
+                if ($prep->execute())
+                    return $prep->insert_id;
+                else 
+                    printf("Errormessage: %s\n", $prep->error);
+
+            } catch (Exception $e) {
+
+                    return false;
+            }
 	}
 	
 	public function addUser($data, $member_id)
@@ -234,6 +234,7 @@ class Layout_Model
 					ORDER BY m.last_activity DESC
 					LIMIT 0, 30
 					';
+                        
 
 			return $this->db->getArray($query);
 			
@@ -296,35 +297,35 @@ class Layout_Model
 	 */
 	public function getAllMembers()
 	{
-		try {
-			$filter = '';
-			
-			if ($_SESSION['loginType'] != 1)
-			{
-				$filter = 'WHERE m.user_id = '.$_SESSION['userId'];
-			}
-			
-			$query = 'SELECT 
-					lpad(m.member_id, 4, 0) AS member_id, 
-					m.user_id, 
-					m.name, 
-					m.last_name, 
-					m.active,
-					m.phone_one,
-					m.email_one,
-					m.date,
-					DATE_FORMAT(m.last_activity, "%d %b, %h:%i %p") as last_activity,
-					d.name AS user_name
-					FROM members m
-					LEFT JOIN user_detail d ON m.user_id = d.user_id
-					'.$filter.'
-					 ORDER BY m.member_id ASC
-					';
-			return $this->db->getArray($query);
-			
-		} catch (Exception $e) {
-			return false;
-		}
+            try {
+                    $filter = '';
+
+                    if ($_SESSION['loginType'] != 1)
+                    {
+                            $filter = 'WHERE m.user_id = '.$_SESSION['userId'];
+                    }
+
+                    $query = 'SELECT 
+                                    lpad(m.member_id, 4, 0) AS member_id, 
+                                    m.user_id, 
+                                    m.name, 
+                                    m.last_name, 
+                                    m.active,
+                                    m.phone_one,
+                                    m.email_one,
+                                    m.date,
+                                    DATE_FORMAT(m.last_activity, "%d %b, %h:%i %p") as last_activity,
+                                    d.name AS user_name
+                                    FROM members m
+                                    LEFT JOIN user_detail d ON m.user_id = d.user_id
+                                    '.$filter.'
+                                     ORDER BY m.member_id ASC
+                                    ';
+                    return $this->db->getArray($query);
+
+            } catch (Exception $e) {
+                    return false;
+            }
 	}
 	
 	public function getRecentMembers()
@@ -406,12 +407,12 @@ class Layout_Model
 	
 	public function updateMemberActivityByMemberId($memberId)
 	{
-		try {
-			$query = 'UPDATE members SET last_activity = CURRENT_TIMESTAMP WHERE member_id = '.$memberId;
-			return $this->db->run($query);
-		} catch (Exception $e) {
-			return false;
-		}
+            try {
+                $query = 'UPDATE members SET last_activity = CURRENT_TIMESTAMP WHERE member_id = '.$memberId;
+                return $this->db->run($query);
+            } catch (Exception $e) {
+                return false;
+            }
 	}
 	
 	public function getMemberByMemberId($memberId)
@@ -1416,6 +1417,61 @@ class Layout_Model
 			return false;
 		}
 	}
+        
+    public function getCheckOutsStrByMemberId($memberId)
+    {
+        try {
+            $query = 'SELECT checkout_str '
+                    . 'FROM checkout_billing '
+                    . 'WHERE member_id = '.$memberId. ' '
+                    . 'ORDER BY checkout_billing_id DESC';
+                    
+            return $this->db->getArray($query);
+        } catch (Exception $e)
+        {
+            return false;
+        }
+    }
+    
+    public function getCheckOutBillingByStr($str)
+    {
+        try {
+            $query = 'SELECT * FROM checkout_billing WHERE checkout_str = "'.$str.'"';
+            return $this->db->getRow($query);
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+    
+    public function getCheckOutDeliveryByStr($str)
+    {
+        try {
+            $query = 'SELECT * FROM checkout_delivery WHERE checkout_str = "'.$str.'"';
+            return $this->db->getRow($query);
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+    
+    public function getCheckOutProductsByStr($str)
+    {
+        try {
+            $query = 'SELECT * FROM checkout_products WHERE checkout_str = "'.$str.'"';
+            return $this->db->getArray($query);
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+    
+    public function getCheckOutByStr($str)
+    {
+        try {
+            $query = 'SELECT * FROM checkout WHERE checkout_str = "'.$str.'"';
+            return $this->db->getRow($query);
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }
 
 
