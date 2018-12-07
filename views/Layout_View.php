@@ -143,12 +143,12 @@ class Layout_View
 						switch ($this->data['section']) {
 
 							case 'dashboard':
-								echo self::getDashboardIcons();
+								//echo self::getDashboardIcons();
 								echo self::getRecentMembers();
 							break;
 							
 							case 'last-added':
-								echo self::getDashboardIcons();
+								//echo self::getDashboardIcons();
 								echo self::getRecentAddedMembers();
 							break;
 							
@@ -343,7 +343,7 @@ class Layout_View
 		<!-- Main Header -->
         <header class="main-header">
             <!-- Logo -->
-            <a href="/" class="logo">
+            <a href="/dashboard/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b><?php echo $this->data['appInfo']['title']; ?></b></span>
                 <!-- logo for regular state and mobile devices -->
@@ -2611,42 +2611,6 @@ class Layout_View
         </div>
 
         
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Custom Tabs (Pulled to the right) -->
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs pull-right">
-                        <li><a href="#tab_3-2" data-toggle="tab"><?php echo _("E-Mail"); ?></a></li>
-                        <li><a href="#tab_3-3" data-toggle="tab" id="tabMessageSender" onclick="scrollToBottom();"><?php echo _("Messages"); ?></a></li>
-                        <li><a href="#tab_1-1" data-toggle="tab"><?php echo _("Tasks"); ?></a></li>
-                        <li class="active"><a href="#tab_2-2" data-toggle="tab"><?php echo _("History"); ?></a></li>
-                        <li class="pull-left header"><i class="fa fa-th"></i><?php echo _("Client Dashboard"); ?></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane" id="tab_3-2">
-                            <?php //echo $this->getRoomPanel(); ?>
-                            email thing
-                        </div><!-- /.tab-pane -->
-						
-                        <div class="tab-pane" id="tab_3-3">
-                            <?php echo $this->getMessagesPanel(); ?>
-                        </div><!-- /.tab-pane -->
-						
-                        <div class="tab-pane active" id="tab_2-2">
-                            <div class="row">
-                                <?php echo $this->getHistoryPanel(); ?>
-                            </div>
-                        </div><!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab_1-1">
-                            <div class="row">
-                                <?php echo $this->getTaskPanel(); ?>
-                            </div>
-                        </div><!-- /.tab-pane -->
-                    </div><!-- /.tab-content -->
-                </div><!-- nav-tabs-custom -->
-            </div><!-- /.col -->
-        </div>
-                
         <?php
         $i = 0;
         foreach ($this->data['checkouts'] as $checkOutMove)
