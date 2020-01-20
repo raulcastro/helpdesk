@@ -18,19 +18,19 @@
 	$typesPages = array(1=>"dashboard/", 2=>"dashboard/");
 	
 	$control = new sessionControl($db,
-			'users',
-			'user',
-			'password',
-			'type',
-			$typesPages,
-			'index.php',
-			0);
+            'users',
+            'user',
+            'password',
+            'type',
+            $typesPages,
+            'index.php',
+            0);
 
 	require_once $root.'/'.'views/Layout_View.php';
 	
-	$data 					= $backend->loadBackend('mainSection');
-	$data['title'] 			= 'Log In';
-	$data['section'] 		= 'log-in';
+	$data 			= $backend->loadBackend('mainSection');
+	$data['title'] 		= 'Log In';
+	$data['section'] 	= 'log-in';
 	$data['template-class'] = 'login-page';
 	
 	$view 		= new Layout_View($data);

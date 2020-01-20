@@ -211,11 +211,11 @@ class Layout_Model
 	{
 		try {
 			$filter = '';
-			
+			/*
 			if ($_SESSION['loginType'] != 1)
 			{
 				$filter = 'WHERE m.user_id = '.$_SESSION['userId'];
-			}
+			}*/
 			
 			$query = 'SELECT 
 					lpad(m.member_id, 4, 0) AS member_id, 
@@ -247,11 +247,11 @@ class Layout_Model
 	{
 		try {
 			$filter = '';
-				
+			/*	
 			if ($_SESSION['loginType'] != 1)
 			{
 				$filter = 'WHERE m.user_id = '.$_SESSION['userId'];
-			}
+			}*/
 				
 			$query = 'SELECT
 					lpad(m.member_id, 4, 0) AS member_id,
@@ -299,12 +299,12 @@ class Layout_Model
 	{
             try {
                     $filter = '';
-
+                    /*
                     if ($_SESSION['loginType'] != 1)
                     {
                             $filter = 'WHERE m.user_id = '.$_SESSION['userId'];
                     }
-
+                    */
                     $query = 'SELECT 
                                     lpad(m.member_id, 4, 0) AS member_id, 
                                     m.user_id, 

@@ -2508,7 +2508,7 @@ class Layout_View
                             <li><span><i class="fa fa-fw fa-map-o"></i> <?php echo $this->data['memberInfo']['address']; ?></span></li>
                             <?php } ?>
                             <li><span><i class="fa fa-fw fa-sticky-note"></i><strong> <?php echo $this->data['memberInfo']['notes']; ?></strong></span></li>
-                            <li><span> <button data-target="#sendEmail" type="submit" class="btn btn-info pull-left btn-sm" data-toggle="modal"><?php echo _("Send E-Mail"); ?></button></span></li>
+                            <!-- <li><span> <button data-target="#sendEmail" type="submit" class="btn btn-info pull-left btn-sm" data-toggle="modal"><?php echo _("Send E-Mail"); ?></button></span></li> -->
                         </ul>
                     </div>
                 </div><!-- /.widget-user -->
